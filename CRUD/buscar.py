@@ -82,6 +82,3 @@ def buscar_endereco():
     for row in resultados:
         tabela.add_row(row)
     print(tabela)
-
-cur.close()
-con.close()

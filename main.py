@@ -1,4 +1,10 @@
 import sys
+from CRUD.cadastrar import cadastrar_aluno
+from CRUD.cadastrar import cadastrar_usuario
+from CRUD.cadastrar import cadastrar_funcionario
+from CRUD.cadastrar import cadastrar_cargo
+from CRUD.cadastrar import cadastrar_plano
+from CRUD.cadastrar import cadastrar_endereco
 
 menu = [
     ">>>>>>>> MENU OPÇÕES <<<<<<<<\n"
@@ -41,30 +47,23 @@ def main():
                     "Insira a opção desejada=> "))
 
                 if submenuCadastrar == 0:
-                    print("\033[1;33mSair")
                     break
                 elif submenuCadastrar == 1:
-                    from CRUD.cadastrar import cadastrar_aluno
                     cadastrar_aluno()
 
                 elif submenuCadastrar == 2:
-                    from CRUD.cadastrar import cadastrar_usuario
                     cadastrar_usuario()
 
                 elif submenuCadastrar == 3:
-                    from CRUD.cadastrar import cadastrar_funcionario
                     cadastrar_funcionario()
 
                 elif submenuCadastrar == 4:
-                    from CRUD.cadastrar import cadastrar_cargo
                     cadastrar_cargo()
 
                 elif submenuCadastrar == 5:
-                    from CRUD.cadastrar import cadastrar_plano
                     cadastrar_plano()
 
                 elif submenuCadastrar == 6:
-                    from CRUD.cadastrar import cadastrar_endereco
                     cadastrar_endereco()
 
     # LISTAR
@@ -72,17 +71,16 @@ def main():
             while True:
                 submenuListar = int(input(
                     "\n>>>>> MENU LISTAR <<<<<\n"
-                    "[7] - Aluno\n"
-                    "[8] - Usuario \n"
-                    "[9] - Funcionario\n"
+                    "[ 7] - Aluno\n"
+                    "[ 8] - Usuario \n"
+                    "[ 9] - Funcionario\n"
                     "[10] - Cargos\n"
                     "[11] - Planos\n"
                     "[12] - Endereços\n"
-                    "[0] - Voltar ao menu\n"
+                    "[ 0] - Voltar ao menu\n"
                     "Insira a opção desejada=> "))
 
                 if submenuListar == 0:
-                    print("\033[1;33mSair")
                     break
 
                 elif submenuListar == 7:
@@ -120,11 +118,10 @@ def main():
                     "[16] - Cargos\n"
                     "[17] - Planos\n"
                     "[18] - Endereços\n"
-                    "[0] - Voltar ao menu\n"
+                    "[ 0] - Voltar ao menu\n"
                     "Insira a opção desejada=> "))
 
                 if submenuBuscar == 0:
-                    print("\033[1;33mSair")
                     break
 
                 elif submenuBuscar == 13:
@@ -162,11 +159,10 @@ def main():
                     "[22] - Cargos\n"
                     "[23] - Planos\n"
                     "[24] - Endereços\n"
-                    "[0] - Voltar ao menu\n"
+                    "[ 0] - Voltar ao menu\n"
                     "Insira a opção desejada=> "))
 
                 if submenuAtualiza == 0:
-                    print("\033[1;33m")
                     break
 
                 elif submenuAtualiza == 19:
@@ -217,10 +213,6 @@ def main():
                     from CRUD.listar import listar_endereco
                     listar_endereco()
 
-
-
-
-
     # EXCLUIR
         elif opcao == 5:
             while True:
@@ -232,11 +224,10 @@ def main():
                     "[28] - Cargos\n"
                     "[29] - Planos\n"
                     "[30] - Endereços\n"
-                    "[0] - Voltar ao menu\n"
+                    "[ 0] - Voltar ao menu\n"
                     "Insira a opção desejada=> "))
 
                 if submenuExcluir == 0:
-                    print("\033[1;33m")
                     break
 
                 elif submenuExcluir == 25:
@@ -266,6 +257,6 @@ def main():
                     excluir_endereco()
 
         else:
-            print("\033[1;33mOpção Inválida!")
+            print("Opção Inválida!\nDigite um opção de [0 a 5]\n")
 
 main()

@@ -6,6 +6,7 @@ from classes import Funcionario
 from classes import Cargo
 from classes import Plano
 from classes import Endereco
+from CRUD.listar import listar_cargo
 
 
 import sqlite3
@@ -18,7 +19,7 @@ def cadastrar_aluno():
     print("\n<<<<<= CADASTRAR ALUNOS =>>>>>")
     matricula = random.randint(1, 10000000)
     nome_cliente = input("Digite o nome=> ")
-    tipo_doc = 'CPF'
+    tipo_doc = input("Informe o tpo de documento [CPF-RG-Passaport-Outros]=> ")
     n_documento = input("Digite o numero do documento=> ")
     telefone = input("Digite o telefone=> ")
     genero = input("Digite o sexo [M ou F]=> ")
@@ -52,7 +53,7 @@ def cadastrar_usuario():
 def cadastrar_funcionario():
     print("\n<<<<<= CADASTRAR FUNCIONARIO =>>>>>")
     nome = input("Digite o nome=> ")
-    tipo_doc = 'CPF'
+    tipo_doc = input("Informe o tpo de documento [CPF-RG-Passaport-Outros]=> ")
     n_documento = input("Digite o numero do documento=> ")
     telefone = input("Digite o telefone=> ")
     genero = input("Digite o sexo [M ou F]=> ")
@@ -60,8 +61,9 @@ def cadastrar_funcionario():
     matricula = random.randint(1, 10000000)
     status = 'Ativo'
     data_contratacao = input("Informe a data de contratação [aaaa-mm-dd]=> ")
-    data_desligamento = input("Informe a data de desligamento [aaaa-mm-dd]=> ")
-    cargo_id = input("Informe o Id do cargo=> ")
+    data_desligamento = ''
+    listar_cargo()
+    cargo_id = input("Informe o codigo do cargo=> ")
     data_cadastro = date.today()
 
     funcionario = Funcionario(id='', nome=nome, tipo_documento=tipo_doc, num_documento=n_documento,
@@ -92,6 +94,7 @@ def cadastrar_cargo():
         (cargo.id, cargo.codigo, cargo.nome, cargo.setor, cargo.salario, cargo.dt_cadastro))
     con.commit()
     print("Registros cadastrados na Tabela Cargos e Salarios!")
+
 
 def cadastrar_plano():
     print("\n<<<<<= CADASTRAR PLANOS - MENSAL =>>>>>")
@@ -125,7 +128,4 @@ def cadastrar_endereco():
     cur.execute("INSERT INTO tb_endereco(id, rua, numero, complemento, cep, bairro, cidade, estado,aluno_matricula,funcionario_matricula)VALUES(null,?,?,?,?,?,?,?,?,?)",
         (endereco.rua, endereco.numero, endereco.complemento, endereco.cep, endereco.bairro, endereco.cidade, endereco.estado, endereco.aluno_matricula, endereco.funcionario_matricula))
     con.commit()
-    print("Registros cadastrados na Tabela Planos!")
-
-cur.close()
-con.close()
+    print("Registros cadastrados na Tabela Endereços!")

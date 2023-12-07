@@ -1,4 +1,3 @@
-from prettytable import PrettyTable
 import sqlite3
 
 database = 'academia.db'
@@ -11,18 +10,17 @@ def atualiza_aluno():
     id = input("Informe o Id a ser atualizado => ")
     campo = input("Informe o Campo a ser atualizado => ")
     valor = input("Informe o novo valor => ")
-    # cur.execute(f'''UPDATE tb_aluno SET status == '{status}' WHERE id == '{id}' ''')
     cur.execute(f'''UPDATE tb_aluno SET '{campo}' == '{valor}' WHERE id == '{id}' ''')
     con.commit()
     print(f"O Id: {id} no campo: {campo} foi atualizado para: {valor}")
 
+
 def atualiza_usuario():
-    print("\n<<<<<= ATUALIZAR ALUNO =>>>>>")
+    print("\n<<<<<= ATUALIZAR USUARIO =>>>>>")
     id = input("Informe o Id a ser atualizado => ")
     campo = input("Informe o Campo a ser atualizado => ")
     valor = input("Informe o novo valor => ")
-    # cur.execute(f'''UPDATE tb_aluno SET status == '{status}' WHERE id == '{id}' ''')
-    cur.execute(f'''UPDATE tb_aluno SET '{campo}' == '{valor}' WHERE id == '{id}' ''')
+    cur.execute(f'''UPDATE tb_usuario SET '{campo}' == '{valor}' WHERE id == '{id}' ''')
     con.commit()
     print(f"O Id: {id} no campo: {campo} foi atualizado para: {valor}")
 
