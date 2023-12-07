@@ -106,6 +106,7 @@ with con:
 print("Tabela de Usuarios populada com sucesso!")
 
 
+
 # ----------------------  POPULA TABELA FUNCIONARIO ------------------------------
 with con:
     cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('João Santos','CPF',11134577700,'6799996-1792','M','0258433','Ativo','2023-05-01','',111,'','2023-12-05')''')
