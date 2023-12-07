@@ -65,6 +65,8 @@ def main():
 
                 elif submenuCadastrar == 6:
                     cadastrar_endereco()
+                else:
+                    print("Opção Inválida!\nDigite um opção de [0 a 6]\n")
 
     # LISTAR
         elif opcao == 2:
@@ -106,6 +108,8 @@ def main():
                 elif submenuListar == 12:
                     from CRUD.listar import listar_endereco
                     listar_endereco()
+                else:
+                    print("Opção Inválida!\nDigite um opção de [0 ou 7 a 12]\n")
 
     # BUSCAR
         elif opcao == 3:
@@ -147,6 +151,8 @@ def main():
                 elif submenuBuscar == 18:
                     from CRUD.buscar import buscar_endereco
                     buscar_endereco()
+                else:
+                    print("Opção Inválida!\nDigite um opção de [0 ou 13 a 18]\n")
 
     # ATUALIZAR
         elif opcao == 4:
@@ -212,6 +218,8 @@ def main():
                     atualiza_endereco()
                     from CRUD.listar import listar_endereco
                     listar_endereco()
+                else:
+                    print("Opção Inválida!\nDigite um opção de [0 ou 19 a 24]\n")
 
     # EXCLUIR
         elif opcao == 5:
@@ -255,6 +263,8 @@ def main():
                 elif submenuExcluir == 30:
                     from CRUD.excluir import excluir_endereco
                     excluir_endereco()
+                else:
+                    print("Opção Inválida!\nDigite um opção de [0 ou 25 a 30]\n")
 
         else:
             print("Opção Inválida!\nDigite um opção de [0 a 5]\n")
