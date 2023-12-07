@@ -1,4 +1,5 @@
 import sys
+import datetime as date
 from CRUD.cadastrar import cadastrar_aluno
 from CRUD.cadastrar import cadastrar_usuario
 from CRUD.cadastrar import cadastrar_funcionario
@@ -6,26 +7,31 @@ from CRUD.cadastrar import cadastrar_cargo
 from CRUD.cadastrar import cadastrar_plano
 from CRUD.cadastrar import cadastrar_endereco
 
+data = date.datetime.now()
+dia = data.day
+mes = data.month
+ano = data.year
+
 menu = [
-    ">>>>>>>> MENU OPÇÕES <<<<<<<<\n"
-    "[1] - Cadastrar\n"
-    "[2] - Listar\n"
-    "[3] - Pesquisar\n"
-    "[4] - Atualizar\n"
-    "[5] - Excluir\n"
-    "[0] - Sair"]
+    "\033[1;96m>>>>>>>> MENU OPÇÕES <<<<<<<<\n\033[0;0m"
+    "\033[1;96m[1]\033[0;0m - Cadastrar\n"
+    "\033[1;96m[2]\033[0;0m - Listar\n"
+    "\033[1;96m[3]\033[0;0m - Pesquisar\n"
+    "\033[1;96m[4]\033[0;0m - Atualizar\n"
+    "\033[1;96m[5]\033[0;0m - Excluir\n"
+    "\033[1;96m[0]\033[0;0m - Sair"]
 
 
 def main():
 
     while True:
         print("-" * 30)
-        print(f"  Olá, seja bem vindo!")
+        print(f" Olá, seja bem vindo!", dia,'/',mes,'/',ano)
         print("-" * 30)
 
         for opcao in menu:
             print(opcao)
-        opcao = input("Insira a opção desejada 0 => ")
+        opcao = input("\033[1;96mInsira a opção desejada 0 =>\033[0;0m ")
         print("-" * 30)
 
         if opcao == "0":
