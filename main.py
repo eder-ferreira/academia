@@ -241,28 +241,47 @@ def main():
                 elif submenuExcluir == "25":
                     from CRUD.excluir import excluir_aluno
                     from CRUD.listar import listar_aluno
+                    listar_aluno()
                     excluir_aluno()
                     listar_aluno()
 
                 elif submenuExcluir == "26":
                     from CRUD.excluir import excluir_usuario
+                    from CRUD.listar import listar_usuario
+                    listar_usuario()
                     excluir_usuario()
+                    listar_usuario()
 
                 elif submenuExcluir == "27":
                     from CRUD.excluir import excluir_funcionario
+                    from CRUD.listar import listar_funcionario
+                    listar_funcionario()
                     excluir_funcionario()
+                    listar_funcionario()
 
                 elif submenuExcluir == "28":
                     from CRUD.excluir import excluir_cargo
+                    from CRUD.listar import listar_cargo
+                    listar_cargo()
                     excluir_cargo()
+                    listar_cargo()
+
 
                 elif submenuExcluir == "29":
                     from CRUD.excluir import excluir_plano
+                    from CRUD.listar import listar_plano
+                    listar_plano()
                     excluir_plano()
+                    listar_plano()
+
 
                 elif submenuExcluir == "30":
                     from CRUD.excluir import excluir_endereco
+                    from CRUD.listar import listar_endereco
+                    listar_endereco()
                     excluir_endereco()
+                    listar_endereco()
+
                 else:
                     print("Opção Inválida!\nDigite um opção de [0 ou 25 a 30]\n")
 
