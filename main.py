@@ -13,12 +13,6 @@ dia = data.day
 mes = data.month
 ano = data.year
 
-
-login = input("Digite seu nome de usuário: ")
-senha = input("Digite sua senha: ")
-if verificar_login(login, senha):
-    print("Login bem-sucedido!")
-
 menu = [
     "\033[1;96m>>>>>>>> MENU OPÇÕES <<<<<<<<\n\033[0;0m"
     "\033[1;96m[1]\033[0;0m - Cadastrar\n"
@@ -32,23 +26,28 @@ menu = [
 def main():
 
     while True:
-        print("-" * 30)
-        print(f" Olá, seja bem vindo!", dia,'/',mes,'/',ano)
-        print("-" * 30)
+        login = input("Digite seu nome de usuário: ")
+        senha = input("Digite sua senha: ")
+        if verificar_login(login, senha):
+            print("Login bem-sucedido!\n")
 
-        for opcao in menu:
-            print(opcao)
-        opcao = input("\033[1;96mInsira a opção desejada 0 =>\033[0;0m ")
-        print("-" * 30)
+            print("-" * 36)
+            print(f" Olá, seja bem vindo!", dia, '/', mes, '/', ano)
+            print("-" * 36)
 
-        if opcao == "0":
-            print('\033[1;31mFinalizando programa....')
-            sys.exit()
+            for opcao in menu:
+                print(opcao)
+            opcao = input("\033[1;96mInsira a opção desejada 0 =>\033[0;0m ")
+            print("-" * 30)
+
+            if opcao == "0":
+                print('\033[1;31mFinalizando programa....')
+                sys.exit()
 
     # CADASTRAR
-        elif opcao == "1":
-            while True:
-                submenuCadastrar = input(
+            elif opcao == "1":
+                while True:
+                    submenuCadastrar = input(
                     "\n>>>>> MENU CADASTRAR <<<<<\n"
                     "[1] - Aluno\n"
                     "[2] - Usuario \n"
@@ -82,9 +81,9 @@ def main():
                     print("Opção Inválida!\nDigite um opção de [0 a 6]\n")
 
     # LISTAR
-        elif opcao == "2":
-            while True:
-                submenuListar = input(
+            elif opcao == "2":
+                while True:
+                        submenuListar = input(
                     "\n>>>>> MENU LISTAR <<<<<\n"
                     "[ 7] - Aluno\n"
                     "[ 8] - Usuario \n"
@@ -125,9 +124,9 @@ def main():
                     print("Opção Inválida!\nDigite um opção de [0 ou 7 a 12]\n")
 
     # BUSCAR
-        elif opcao == "3":
-            while True:
-                submenuBuscar = input(
+            elif opcao == "3":
+                while True:
+                    submenuBuscar = input(
                     "\n>>>>> MENU PESQUISAR <<<<<\n"
                     "[13] - Aluno\n"
                     "[14] - Usuario \n"
@@ -168,9 +167,9 @@ def main():
                     print("Opção Inválida!\nDigite um opção de [0 ou 13 a 18]\n")
 
     # ATUALIZAR
-        elif opcao == "4":
-            while True:
-                submenuAtualiza = input(
+            elif opcao == "4":
+                while True:
+                    submenuAtualiza = input(
                     "\n>>>>> MENU ATUALIZAR <<<<<\n"
                     "[19] - Aluno\n"
                     "[20] - Usuario \n"
@@ -235,9 +234,9 @@ def main():
                     print("Opção Inválida!\nDigite um opção de [0 ou 19 a 24]\n")
 
     # EXCLUIR
-        elif opcao == "5":
-            while True:
-                submenuExcluir = input(
+            elif opcao == "5":
+                while True:
+                    submenuExcluir = input(
                     "\n>>>>> MENU EXCLUIR <<<<<\n"
                     "[25] - Aluno\n"
                     "[26] - Usuario \n"
@@ -298,7 +297,9 @@ def main():
                 else:
                     print("Opção Inválida!\nDigite um opção de [0 ou 25 a 30]\n")
 
-        else:
-            print("Opção Inválida!\nDigite um opção de [0 a 5]\n")
+            else:
+                print("Opção Inválida!\nDigite um opção de [0 a 5]\n")
 
+        else:
+            print("Login ou senha incorretos!")
 main()
