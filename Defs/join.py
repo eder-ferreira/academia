@@ -27,6 +27,3 @@ def join_funcionario_cargo():
     print(tabela)
 
 
-join_funcionario_cargo()
-
-
