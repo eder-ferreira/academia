@@ -6,7 +6,7 @@ from Defs.cadastrar import cadastrar_funcionario
 from Defs.cadastrar import cadastrar_cargo
 from Defs.cadastrar import cadastrar_plano
 from Defs.cadastrar import cadastrar_endereco
-from validar_login import autentica_login
+from Defs.validar_login import autentica_login
 
 data = date.datetime.now()
 dia = data.day
@@ -20,6 +20,7 @@ menu = [
     "\033[0;34m[3]\033[0;0m - Pesquisar\n"
     "\033[0;34m[4]\033[0;0m - Atualizar\n"
     "\033[0;34m[5]\033[0;0m - Excluir\n"
+    "\033[0;34m[6]\033[0;0m - Relatorio\n"    
     "\033[0;34m[0]\033[0;0m - Sair"]
 
 
@@ -320,6 +321,31 @@ def main():
                                 listar_endereco()
                                 excluir_endereco()
                                 listar_endereco()
+
+                            else:
+                                print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 25 a 30]\n\033[0m")
+
+                    # RELATORIO
+                    elif opcao == "6":
+                        while True:
+                            submenuRelatorio = input(
+                                "\n>>>>> MENU RELATORIOS <<<<<\n"
+                                "[31] - Funcionario vs Cargo\n"
+                                "[32] - Criar \n"
+                                "[ 0] - Voltar ao menu\n"
+                                "Insira a opção desejada=> ")
+
+                            if submenuRelatorio == "0":
+                                print("-" * 30)
+                                break
+
+                            elif submenuRelatorio == "31":
+                                from Defs.join import join_funcionario_cargo
+                                join_funcionario_cargo()
+
+                            elif submenuRelatorio == "32":
+                                from Defs.join import join_funcionario_cargo
+                                join_funcionario_cargo()
 
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 25 a 30]\n\033[0m")
