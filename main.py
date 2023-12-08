@@ -33,7 +33,7 @@ def main():
         tela_login()
         opcao = int(input("Insira a opção=> "))
         if opcao == 0:
-            print("\nFechando o programa....\n")
+            print("\n\033[1;96mFechando o programa....\n\033[0;0m")
             break
 
         elif opcao == 1:
