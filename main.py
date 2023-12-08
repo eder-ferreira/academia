@@ -1,11 +1,11 @@
 import sys
 import datetime as date
-from CRUD.cadastrar import cadastrar_aluno
-from CRUD.cadastrar import cadastrar_usuario
-from CRUD.cadastrar import cadastrar_funcionario
-from CRUD.cadastrar import cadastrar_cargo
-from CRUD.cadastrar import cadastrar_plano
-from CRUD.cadastrar import cadastrar_endereco
+from Defs.cadastrar import cadastrar_aluno
+from Defs.cadastrar import cadastrar_usuario
+from Defs.cadastrar import cadastrar_funcionario
+from Defs.cadastrar import cadastrar_cargo
+from Defs.cadastrar import cadastrar_plano
+from Defs.cadastrar import cadastrar_endereco
 from validar_login import autentica_login
 
 data = date.datetime.now()
@@ -44,7 +44,7 @@ def main():
             cadastrar_usuario()
 
         elif opcao == 1:
-            print("\n<<<<<<<<= MENU LOGAR =>>>>>>>>>>")
+            print("\n<<<<<<<<= \033[0;34mMENU LOGAR \033[0;0m=>>>>>>>>>>")
             login = input("Digite seu login=> ")
             senha = input("Digite sua senha=> ")
             if autentica_login(login, senha):
@@ -122,27 +122,27 @@ def main():
                                 break
 
                             elif submenuListar == "7":
-                                from CRUD.listar import listar_aluno
+                                from Defs.listar import listar_aluno
                                 listar_aluno()
 
                             elif submenuListar == "8":
-                                from CRUD.listar import listar_usuario
+                                from Defs.listar import listar_usuario
                                 listar_usuario()
 
                             elif submenuListar == "9":
-                                from CRUD.listar import listar_funcionario
+                                from Defs.listar import listar_funcionario
                                 listar_funcionario()
 
                             elif submenuListar == "10":
-                                from CRUD.listar import listar_cargo
+                                from Defs.listar import listar_cargo
                                 listar_cargo()
 
                             elif submenuListar == "11":
-                                from CRUD.listar import listar_plano
+                                from Defs.listar import listar_plano
                                 listar_plano()
 
                             elif submenuListar == "12":
-                                from CRUD.listar import listar_endereco
+                                from Defs.listar import listar_endereco
                                 listar_endereco()
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 7 a 12]\n\033[0;0m")
@@ -166,27 +166,27 @@ def main():
                                 break
 
                             elif submenuBuscar == "13":
-                                from CRUD.buscar import buscar_aluno
+                                from Defs.buscar import buscar_aluno
                                 buscar_aluno()
 
                             elif submenuBuscar == "14":
-                                from CRUD.buscar import buscar_usuario
+                                from Defs.buscar import buscar_usuario
                                 buscar_usuario()
 
                             elif submenuBuscar == "15":
-                                from CRUD.buscar import buscar_funcionario
+                                from Defs.buscar import buscar_funcionario
                                 buscar_funcionario()
 
                             elif submenuBuscar == "16":
-                                from CRUD.buscar import buscar_cargo
+                                from Defs.buscar import buscar_cargo
                                 buscar_cargo()
 
                             elif submenuBuscar == "17":
-                                from CRUD.buscar import buscar_plano
+                                from Defs.buscar import buscar_plano
                                 buscar_plano()
 
                             elif submenuBuscar == "18":
-                                from CRUD.buscar import buscar_endereco
+                                from Defs.buscar import buscar_endereco
                                 buscar_endereco()
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 13 a 18]\n\033[0;0m")
@@ -210,51 +210,51 @@ def main():
                                 break
 
                             elif submenuAtualiza == "19":
-                                from CRUD.listar import listar_aluno
+                                from Defs.listar import listar_aluno
                                 listar_aluno()
-                                from CRUD.atualizar import atualiza_aluno
+                                from Defs.atualizar import atualiza_aluno
                                 atualiza_aluno()
-                                from CRUD.listar import listar_aluno
+                                from Defs.listar import listar_aluno
                                 listar_aluno()
 
                             elif submenuAtualiza == "20":
-                                from CRUD.listar import listar_usuario
+                                from Defs.listar import listar_usuario
                                 listar_usuario()
-                                from CRUD.atualizar import atualiza_usuario
+                                from Defs.atualizar import atualiza_usuario
                                 atualiza_usuario()
-                                from CRUD.listar import listar_usuario
+                                from Defs.listar import listar_usuario
                                 listar_usuario()
 
                             elif submenuAtualiza == "21":
-                                from CRUD.listar import listar_funcionario
+                                from Defs.listar import listar_funcionario
                                 listar_funcionario()
-                                from CRUD.atualizar import atualiza_funcionario
+                                from Defs.atualizar import atualiza_funcionario
                                 atualiza_funcionario()
-                                from CRUD.listar import listar_funcionario
+                                from Defs.listar import listar_funcionario
                                 listar_funcionario()
 
                             elif submenuAtualiza == "22":
-                                from CRUD.listar import listar_cargo
+                                from Defs.listar import listar_cargo
                                 listar_cargo()
-                                from CRUD.atualizar import atualiza_cargo
+                                from Defs.atualizar import atualiza_cargo
                                 atualiza_cargo()
-                                from CRUD.listar import listar_cargo
+                                from Defs.listar import listar_cargo
                                 listar_cargo()
 
                             elif submenuAtualiza == "23":
-                                from CRUD.listar import listar_plano
+                                from Defs.listar import listar_plano
                                 listar_plano()
-                                from CRUD.atualizar import atualiza_plano
+                                from Defs.atualizar import atualiza_plano
                                 atualiza_plano()
-                                from CRUD.listar import listar_plano
+                                from Defs.listar import listar_plano
                                 listar_plano()
 
                             elif submenuAtualiza == "24":
-                                from CRUD.listar import listar_endereco
+                                from Defs.listar import listar_endereco
                                 listar_endereco()
-                                from CRUD.atualizar import atualiza_endereco
+                                from Defs.atualizar import atualiza_endereco
                                 atualiza_endereco()
-                                from CRUD.listar import listar_endereco
+                                from Defs.listar import listar_endereco
                                 listar_endereco()
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 19 a 24]\n\033[0;0m")
@@ -278,45 +278,45 @@ def main():
                                 break
 
                             elif submenuExcluir == "25":
-                                from CRUD.excluir import excluir_aluno
-                                from CRUD.listar import listar_aluno
+                                from Defs.excluir import excluir_aluno
+                                from Defs.listar import listar_aluno
                                 listar_aluno()
                                 excluir_aluno()
                                 listar_aluno()
 
                             elif submenuExcluir == "26":
-                                from CRUD.excluir import excluir_usuario
-                                from CRUD.listar import listar_usuario
+                                from Defs.excluir import excluir_usuario
+                                from Defs.listar import listar_usuario
                                 listar_usuario()
                                 excluir_usuario()
                                 listar_usuario()
 
                             elif submenuExcluir == "27":
-                                from CRUD.excluir import excluir_funcionario
-                                from CRUD.listar import listar_funcionario
+                                from Defs.excluir import excluir_funcionario
+                                from Defs.listar import listar_funcionario
                                 listar_funcionario()
                                 excluir_funcionario()
                                 listar_funcionario()
 
                             elif submenuExcluir == "28":
-                                from CRUD.excluir import excluir_cargo
-                                from CRUD.listar import listar_cargo
+                                from Defs.excluir import excluir_cargo
+                                from Defs.listar import listar_cargo
                                 listar_cargo()
                                 excluir_cargo()
                                 listar_cargo()
 
 
                             elif submenuExcluir == "29":
-                                from CRUD.excluir import excluir_plano
-                                from CRUD.listar import listar_plano
+                                from Defs.excluir import excluir_plano
+                                from Defs.listar import listar_plano
                                 listar_plano()
                                 excluir_plano()
                                 listar_plano()
 
 
                             elif submenuExcluir == "30":
-                                from CRUD.excluir import excluir_endereco
-                                from CRUD.listar import listar_endereco
+                                from Defs.excluir import excluir_endereco
+                                from Defs.listar import listar_endereco
                                 listar_endereco()
                                 excluir_endereco()
                                 listar_endereco()

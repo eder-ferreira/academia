@@ -6,7 +6,7 @@ from classes import Funcionario
 from classes import Cargo
 from classes import Plano
 from classes import Endereco
-from CRUD.listar import listar_cargo
+from Defs.listar import listar_cargo
 
 
 import sqlite3
