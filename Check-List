@@ -1,10 +1,12 @@
 
-1- Criar Menu de Login e cadastro de novo usuario
-    -validar se o usuario ja existe no banco
+1- Criar Menu de Login e cadastro de novo usuario  OK
+  OK -validar se o usuario ja existe no banco
+
 2- Criar regra de negocio
     - função para filtrar aniversariantes do mês
     - função para atualizar o campo status (Ativo ou Inativo) para funcionario desligado
-    - função para filtrar maiores salarios por setor
+    - função para filtrar maiores salarios por setor (JOIN)
+ OK - Criar nova tabela com JOIN para vincular o setor e o salario
     - função para filtrar alunos (M ou F)
     - quando cadastrar novo usuario (tb_usuario) atualizar a tabela (tb_aluno)
 
