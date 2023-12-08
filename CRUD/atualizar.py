@@ -1,5 +1,4 @@
 import sqlite3
-
 database = 'academia.db'
 con = sqlite3.connect(database, check_same_thread=False)  # CRIA CONEXÃO
 cur = con.cursor()  # CRIA CURSOR
