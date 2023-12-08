@@ -133,7 +133,7 @@ def main():
                         "[16] - Cargos\n"
                         "[17] - Planos\n"
                         "[18] - Endereços\n"
-                        "[ 0] - Voltar ao menu\n"
+                        "[0] - Voltar ao menu\n"
                         "Insira a opção desejada=> ")
 
                     if submenuBuscar == "0":
