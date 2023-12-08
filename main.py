@@ -22,17 +22,31 @@ menu = [
     "\033[1;96m[5]\033[0;0m - Excluir\n"
     "\033[1;96m[0]\033[0;0m - Sair"]
 
-
+def tela_login():
+    print(f"<<<<<= Olá, seja bem vindo!!! =>>>>> Data: {data}",
+          "\n[0]- Sair"
+          "\n[1]- Logar"
+          "\n[2]- Cadastrar Novo Usuario")
 
 def main():
-    # login = input("Digite seu nome de usuário: ")
-    # senha = input("Digite sua senha: ")
-    # if verificar_login(login, senha):
     while True:
-            print("Login bem-sucedido!\n")
-            print("-" * 36)
-            print(f" Olá, seja bem vindo!", dia, '/', mes, '/', ano)
-            print("-" * 36)
+        tela_login()
+        opcao = int(input("Insira a opção=> "))
+        if opcao == 0:
+            print("\nFechando o programa....\n")
+            break
+
+        elif opcao == 1:
+            print("MENU DE LOGIN")
+            login = input("Digite seu login: ")
+            senha = input("Digite sua senha: ")
+            if verificar_login(login, senha):
+
+
+                print("Login bem-sucedido!\n")
+                print("-" * 36)
+                print(f" Olá, seja bem vindo!", dia, '/', mes, '/', ano)
+                print("-" * 36)
 
             for opcao in menu:
                 print(opcao)
@@ -299,8 +313,8 @@ def main():
             else:
                 print("Opção Inválida!\nDigite um opção de [0 a 5]\n")
 
-        # else:
-        #     print("Login ou senha incorretos!")
+        else:
+            print("Login ou senha incorretos!")
 
 
 main()
