@@ -1,0 +1,9 @@
+
+1- Criar Menu de Login e cadastro de novo usuario
+2- Criar regra de negocio
+    - função para filtrar aniversariantes do mês
+    - função para atualizar o campo status (Ativo ou Inativo) para funcionario desligado
+    - função para filtrar maiores salarios por setor
+    - função para filtrar alunos (M ou F)
+
+3- Criar documento de analise dos requisitos

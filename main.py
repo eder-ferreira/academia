@@ -23,13 +23,13 @@ menu = [
     "\033[1;96m[0]\033[0;0m - Sair"]
 
 
-def main():
-    while True:
-        login = input("Digite seu nome de usuário: ")
-        senha = input("Digite sua senha: ")
-        if verificar_login(login, senha):
-            print("Login bem-sucedido!\n")
 
+def main():
+    # login = input("Digite seu nome de usuário: ")
+    # senha = input("Digite sua senha: ")
+    # if verificar_login(login, senha):
+    while True:
+            print("Login bem-sucedido!\n")
             print("-" * 36)
             print(f" Olá, seja bem vindo!", dia, '/', mes, '/', ano)
             print("-" * 36)
@@ -299,8 +299,8 @@ def main():
             else:
                 print("Opção Inválida!\nDigite um opção de [0 a 5]\n")
 
-        else:
-            print("Login ou senha incorretos!")
+        # else:
+        #     print("Login ou senha incorretos!")
 
 
 main()
