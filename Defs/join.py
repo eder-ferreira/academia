@@ -26,4 +26,34 @@ def join_funcionario_cargo():
         tabela.add_row(row)
     print(tabela)
 
+def maiores_salarios():
 
+    # Executar a consulta INNER JOIN
+    escolha = input("""
+    Digite:
+    [1] - Menores Salários
+    [2] - Maiores Salários
+    Escolha a opçao =>  """)
+    if escolha == 1:
+        base = 'DESC'
+    else:
+        base = 'ASC'
+
+        cur.execute(f""" SELECT * FROM tb_cargo ORDER BY salario_base {base} LIMIT 3 """)
+
+
+    # Obter os resultados
+    resultados = cur.fetchall()
+
+    # Imprimi resultado
+    # for resultado in resultados:
+    #     print(resultado)
+
+    tabela = PrettyTable()
+    tabela.field_names = [desc[0] for desc in cur.description]
+    # tabela.field_names =["Cargo", "Salario"]
+    for row in resultados:
+        tabela.add_row(row)
+    print(tabela)
+
+maiores_salarios()

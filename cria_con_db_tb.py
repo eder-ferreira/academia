@@ -10,10 +10,10 @@ print('Banco de dados academia.db criado!!!')
 with con:
     cur.execute('''CREATE TABLE IF NOT EXISTS 'tb_aluno'(
     'id' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    'matricula' INTEGER NOT NULL,
+    'matricula'	INTEGER NOT NULL UNIQUE,
     'nome' TEXT,
     'tipo_documento' TEXT,
-    'num_documento' VARCHAR(10),
+    'num_documento' VARCHAR(10) NOT NULL UNIQUE,
     'telefone' VARCHAR(12),
     'genero' VARCHAR(1),
     'status' TEXT,
@@ -36,10 +36,10 @@ with con:
     'id' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     'nome' TEXT,
     'tipo_documento' TEXT,
-    'num_documento' VARCHAR(10),
+    'num_documento' VARCHAR(10) UNIQUE,
     'telefone' VARCHAR(12),
     'genero' VARCHAR(1),
-    'matricula' INTEGER NOT NULL,
+    'matricula'	INTEGER,
     'status' TEXT,
     'dt_contratacao' DATE,
     'dt_desligamento' DATE,
@@ -52,7 +52,7 @@ with con:
 
     cur.execute('''CREATE TABLE IF NOT EXISTS 'tb_cargo'(
     'id' INTEGER NOT NULL PRIMARY KEY,
-    'codigo' INTEGER,
+    'codigo' INTEGER NOT NULL UNIQUE,
     'nome' TEXT,
     'setor' TEXT,
     'salario_base' FLOAT,
@@ -61,7 +61,7 @@ with con:
 
     cur.execute('''CREATE TABLE IF NOT EXISTS 'tb_plano'(
     'id' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    'codigo' INTEGER,
+    'codigo' INTEGER NOT NULL UNIQUE,
     'descricao' TEXT NOT NULL,
     'nivel' TEXT NOT NULL,
     'valor' FLOAT,
@@ -109,31 +109,41 @@ print("Tabela de Usuarios populada com sucesso!")
 
 # ----------------------  POPULA TABELA FUNCIONARIO ------------------------------
 with con:
-    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('João Santos','CPF',11134577700,'6799996-1792','M','0258433','Ativo','2023-05-01','',111,'','2023-12-05')''')
-    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Arnaldo Fleuri','CPF',09832227700,'6599996-0003','M','0258444','Ativo','2023-05-01','',222,'','2023-12-05')''')
-    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Carlos da Costa','CPF',09555577700,'6999996-0292','M','0258455','Ativo','2023-05-01','',333,'','2023-12-05')''')
-    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('João Leonel Ferreira','CPF',09834587600,'3199996-1802','M','0258466','Ativo','2023-05-01','',444,'','2023-12-05')''')
-    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Bruno Guimarães','CPF',09834577321,'6699996-1796','M','0258477','Desligado','2015-05-01','2023-09-01',555,'','2023-12-05')''')
-    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Loren Pires','CPF',00034577700,'2199996-1792','F','0258488','Ativo','2023-05-01','',666,'','2023-12-05')''')
-    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Ana Luisa Oliveira','CPF',09123577700,'6799996-4492','F','0258499','Ativo','2023-05-01','',777,'','2023-12-05')''')
-    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Luciana Ferreira','CPF',09456577700,'1199996-1234','F','0258422','Ativo','2023-05-01','',111,'','2023-12-05')''')
-    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Herminia Assunção','CPF',09830327700,'1699996-4321','F','0258411','Ativo','2023-05-01','',999,'','2023-12-05')''')
-    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Marina de Paula Fonseca','CPF',09834567980,'6799996-1717','F','0258400','Aposentada','1999-05-01','2023-08-01',999,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('João Santos','CPF',00134577700,'6799996-1792','M','0158433','Ativo','2023-05-01','',111,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Arnaldo Fleuri','CPF',01832227700,'6599996-0003','M','0338444','Ativo','2023-05-01','',222,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Carlos da Costa','CPF',02554576700,'6999996-0292','M','0258925','Ativo','2023-05-01','',333,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('João Leonel Ferreira','CPF',09234587601,'3199996-1802','M','0254466','Ativo','2023-05-01','',444,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Bruno Guimarães','CPF',03834533321,'6699996-1796','M','0238477','Desligado','2015-05-01','2023-09-01',555,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Loren Pires','CPF',00134177700,'2199996-1792','F','0248488','Ativo','2023-05-01','',666,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Ana Luisa Oliveira','CPF',09123347700,'6799996-4492','F','0256499','Ativo','2023-05-01','',777,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Luciana Ferreira','CPF',09456575500,'1199996-1234','F','0338422','Ativo','2023-05-01','',111,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Herminia Assunção','CPF',09830322200,'1699996-4321','F','0282411','Ativo','2023-05-01','',999,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Marina de Paula Fonseca','CPF',04834597910,'6799996-1717','F','0118400','Aposentada','1999-05-01','2023-08-01',999,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('João Pereira da Silva','CPF',00134522201,'6799996-1792','M','0122201','Ativo','2023-05-01','',111,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Arthur Fidelis','CPF',01832115507,'6899996-0004','M','0158403','Ativo','2023-05-01','',222,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Roberto Carlos Guimarães','CPF',09527533400,'6999996-0295','M','0158163','Ativo','2023-05-01','',333,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('João Leonardo Paim','CPF',00834587605,'7088996-1502','M','0218304','Ativo','2023-05-01','',444,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Marcos Silva Guimarães','CPF',22834522005,'7199997-1699','M','0234405','Desligado','2015-05-01','2023-09-01',555,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Lorena Calabria de Jesus','CPF',00134501752,'2177996-3393','F','0348406','Ativo','2023-05-01','',666,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Analu Maldini','CPF',10123532700,'6299396-2299','F','0155207','Ativo','2023-05-01','',777,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Lucia Veronica Salazar','CPF',03456572330,'1188996-4321','F','0290208','Ativo','2023-05-01','',111,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Herminia Esteves','CPF',06530327200,'1699666-1234','F','0250909','Ativo','2023-05-01','',999,'','2023-12-05')''')
+    cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, usuario_id, dt_cadastro)VALUES('Marta Maria da Conceição','CPF',00004564930,'6795996-2030','F','0148510','Aposentada','1999-05-01','2023-08-01',999,'','2023-12-05')''')
     con.commit()
 print("Tabela de Funcionario populada com sucesso!")
 
 # ----------------------  POPULA TABELA ALUNOS ------------------------------
 with con:
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269570,'João da Silva','CPF',09834577700,'6799996-1792','M','Ativo','2019-05-01','')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269571,'José Francisco do Carmo','CPF',09834577722,'6899996-1722','M','Ativo','2023-12-01','')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269572,'Maria José Costa','CPF',09834574400,'6999996-1800','F','Ativo','2023-03-01','')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269573,'Artemio Machado','CPF',09204577700,'1199996-1733','M','Ativo','2023-05-01','')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269574,'Leonel de Paula','CPF',09834577711,'6699996-1392','M','Ativo','2022-02-01','')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269575,'Luiza de Souza','CPF',09834579900,'6599996-1295','F','Ativo','2020-06-01','')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269576,'Loren Pires','CPF',09835577700,'2199996-1891','M','Ativo','2023-05-01','')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269577,'Ana Maria Ferreira','CPF',09832177700,'4499996-1202','F','Ativo','2082-05-01','')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269578,'Amora Oliveira','CPF',09834566600,'6299996-1112','F','Ativo','2023-05-01','')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269579,'Francisca Matos Freitas','CPF',09094577700,'6799996-0093','F','Ativo','1999-07-01','')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269533,'João da Silva','CPF',09834555700,'6799996-1792','M','Ativo','2019-05-01','')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269544,'José Francisco do Carmo','CPF',09834577722,'6899996-1722','M','Ativo','2023-12-01','')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269555,'Maria José Costa','CPF',09834574400,'6999996-1800','F','Ativo','2023-03-01','')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269566,'Artemio Machado','CPF',09204577700,'1199996-1733','M','Ativo','2023-05-01','')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269577,'Leonel de Paula','CPF',09834577711,'6699996-1392','M','Ativo','2022-02-01','')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269588,'Luiza de Souza','CPF',09834579900,'6599996-1295','F','Ativo','2020-06-01','')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269599,'Loren Pires','CPF',09835577700,'2199996-1891','M','Ativo','2023-05-01','')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269500,'Ana Maria Ferreira','CPF',09832177700,'4499996-1202','F','Ativo','2082-05-01','')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269511,'Amora Oliveira','CPF',09834566600,'6299996-1112','F','Ativo','2023-05-01','')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(0269522,'Francisca Matos Freitas','CPF',09094577700,'6799996-0093','F','Ativo','1999-07-01','')''')
     con.commit()
 print("Tabela de Alunos populada com sucesso!")
 
@@ -149,6 +159,8 @@ with con:
     cur.execute('''INSERT INTO tb_cargo(codigo,nome,setor,salario_base,dt_cadastro) VALUES(888,'Gerente', 'Auditoria', 7000,'2023-05-01')''')
     cur.execute('''INSERT INTO tb_cargo(codigo,nome,setor,salario_base,dt_cadastro) VALUES(999,'Especialista', 'TI', 5000,'2023-05-01')''')
     cur.execute('''INSERT INTO tb_cargo(codigo,nome,setor,salario_base,dt_cadastro) VALUES(101,'Diretor Geral', 'Presidencia',50000,'2023-05-01')''')
+    cur.execute('''INSERT INTO tb_cargo(codigo,nome,setor,salario_base,dt_cadastro) VALUES(102,'Professor', 'Operacional',6000,'2023-05-01')''')
+    cur.execute('''INSERT INTO tb_cargo(codigo,nome,setor,salario_base,dt_cadastro) VALUES(103,'Secretaria', 'Administrativo',2000,'2023-05-01')''')
     con.commit()
 print("Tabela de Cargo e salarios populada com sucesso!")
 
