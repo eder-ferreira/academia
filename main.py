@@ -326,6 +326,5 @@ def main():
                 print("*" * 33)
                 print("Login ou senha incorretos!")
                 print("*" * 33)
-                print("TESTE DE UPDATE")
 
 main()
