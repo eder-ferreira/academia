@@ -1,6 +1,7 @@
 from prettytable import PrettyTable
 import sqlite3
-con = sqlite3.connect('academia.db')
+database = '/Users/ederpferreira/PycharmProjects/academia/academia.db'
+con = sqlite3.connect(database, check_same_thread=False)
 cur = con.cursor()
 
 

@@ -343,10 +343,6 @@ def main():
                                 from Defs.join import join_funcionario_cargo
                                 join_funcionario_cargo()
 
-                            elif submenuRelatorio == "32":
-                                from Defs.join import join_funcionario_cargo
-                                join_funcionario_cargo()
-
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 25 a 30]\n\033[0m")
 
