@@ -6,7 +6,7 @@ from CRUD.cadastrar import cadastrar_funcionario
 from CRUD.cadastrar import cadastrar_cargo
 from CRUD.cadastrar import cadastrar_plano
 from CRUD.cadastrar import cadastrar_endereco
-from validar_login import verificar_login
+from validar_login import autentica_login
 
 data = date.datetime.now()
 dia = data.day
@@ -39,17 +39,22 @@ def main():
             print("\n\033[0;31mFechando o programa....\n\033[0;0m")
             sys.exit()
 
+        elif opcao == 2:
+            print("\n<<<<<<<<= MENU CADASTRAR USUARIO =>>>>>>>>>>")
+            cadastrar_usuario()
+
         elif opcao == 1:
             print("\n<<<<<<<<= MENU LOGAR =>>>>>>>>>>")
             login = input("Digite seu login=> ")
             senha = input("Digite sua senha=> ")
-            if verificar_login(login, senha):
+            if autentica_login(login, senha):
                 print("=" * 36)
                 print("\033[0;34mLogin bem-sucedido!\033[0m\n")
                 print("-" * 36)
                 print(f" Data: {data}")
                 print(f" Olá, seja bem vindo(a): {login}!")
                 print("-" * 36)
+
                 while True:
                     for opcao in menu:
                         print(opcao)

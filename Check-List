@@ -1,5 +1,6 @@
 
 1- Criar Menu de Login e cadastro de novo usuario
+    -validar se o usuario ja existe no banco
 2- Criar regra de negocio
     - função para filtrar aniversariantes do mês
     - função para atualizar o campo status (Ativo ou Inativo) para funcionario desligado
