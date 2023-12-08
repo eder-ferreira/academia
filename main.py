@@ -14,29 +14,29 @@ mes = data.month
 ano = data.year
 
 menu = [
-    "\033[1;96m>>>>>>>> MENU OPÇÕES <<<<<<<<\n\033[0;0m"
-    "\033[1;96m[1]\033[0;0m - Cadastrar\n"
-    "\033[1;96m[2]\033[0;0m - Listar\n"
-    "\033[1;96m[3]\033[0;0m - Pesquisar\n"
-    "\033[1;96m[4]\033[0;0m - Atualizar\n"
-    "\033[1;96m[5]\033[0;0m - Excluir\n"
-    "\033[1;96m[0]\033[0;0m - Sair"]
+    "\033[0;34m>>>>>>>> MENU OPÇÕES <<<<<<<<\n\033[0;0m"
+    "\033[0;34m[1]\033[0;0m - Cadastrar\n"
+    "\033[0;34m[2]\033[0;0m - Listar\n"
+    "\033[0;34m[3]\033[0;0m - Pesquisar\n"
+    "\033[0;34m[4]\033[0;0m - Atualizar\n"
+    "\033[0;34m[5]\033[0;0m - Excluir\n"
+    "\033[0;34m[0]\033[0;0m - Sair"]
 
 
 def tela_login():
-    print(f"\nData: {data}"
+    print(f"\n\033[0;32mData: {data}"
       "\n<<<<<<<= TELA DE LOGIN =>>>>>>>>",
       "\n[0] - Sair"
       "\n[1] - Logar"
-      "\n[2] - Cadastrar Novo Usuario")
+      "\n[2] - Cadastrar Novo Usuario\033[0m")
 
 
 def main():
     while True:
         tela_login()
-        opcao = int(input("Insira a opção=> "))
+        opcao = int(input("\033[0;32mInsira a opção=> \033[0m"))
         if opcao == 0:
-            print("\n\033[1;96mFechando o programa....\n\033[0;0m")
+            print("\n\033[0;31mFechando o programa....\n\033[0;0m")
             sys.exit()
 
         elif opcao == 1:
@@ -45,7 +45,7 @@ def main():
             senha = input("Digite sua senha=> ")
             if verificar_login(login, senha):
                 print("=" * 36)
-                print("Login bem-sucedido!\n")
+                print("\033[0;34mLogin bem-sucedido!\033[0m\n")
                 print("-" * 36)
                 print(f" Data: {data}")
                 print(f" Olá, seja bem vindo(a): {login}!")
@@ -53,7 +53,7 @@ def main():
                 while True:
                     for opcao in menu:
                         print(opcao)
-                    opcao = input("\033[1;96mInsira a opção desejada 0 =>\033[0;0m ")
+                    opcao = input("\033[0;34mInsira a opção desejada 0 =>\033[0;0m ")
                     print("-" * 30)
 
                     if opcao == "0":
@@ -96,7 +96,7 @@ def main():
                             elif submenuCadastrar == "6":
                                 cadastrar_endereco()
                             else:
-                                print("Opção Inválida!\nDigite um opção de [0 a 6]\n")
+                                print("\033[1;31mOpção Inválida!\nDigite um opção de [0 a 6]\n\033[0;0m")
 
                     # LISTAR
                     elif opcao == "2":
@@ -140,7 +140,7 @@ def main():
                                 from CRUD.listar import listar_endereco
                                 listar_endereco()
                             else:
-                                print("Opção Inválida!\nDigite um opção de [0 ou 7 a 12]\n")
+                                print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 7 a 12]\n\033[0;0m")
 
                     # BUSCAR
                     elif opcao == "3":
@@ -184,7 +184,7 @@ def main():
                                 from CRUD.buscar import buscar_endereco
                                 buscar_endereco()
                             else:
-                                print("Opção Inválida!\nDigite um opção de [0 ou 13 a 18]\n")
+                                print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 13 a 18]\n\033[0;0m")
 
                     # ATUALIZAR
                     elif opcao == "4":
@@ -252,7 +252,7 @@ def main():
                                 from CRUD.listar import listar_endereco
                                 listar_endereco()
                             else:
-                                print("Opção Inválida!\nDigite um opção de [0 ou 19 a 24]\n")
+                                print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 19 a 24]\n\033[0;0m")
 
                     # EXCLUIR
                     elif opcao == "5":
@@ -317,14 +317,12 @@ def main():
                                 listar_endereco()
 
                             else:
-                                print("Opção Inválida!\nDigite um opção de [0 ou 25 a 30]\n")
+                                print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 25 a 30]\n\033[0m")
 
                     else:
-                        print("Opção Inválida!\nDigite um opção de [0 a 5]\n")
+                        print("\033[1;31mOpção Inválida!\nDigite um opção de [0 a 5]\n\033[0m")
 
             else:
-                print("*" * 33)
-                print("Login ou senha incorretos!")
-                print("*" * 33)
+                print("\033[1;31mLogin ou senha incorretos!\033[0m")
 
 main()
