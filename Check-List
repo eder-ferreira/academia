@@ -5,5 +5,6 @@
     - função para atualizar o campo status (Ativo ou Inativo) para funcionario desligado
     - função para filtrar maiores salarios por setor
     - função para filtrar alunos (M ou F)
+    - quando cadastrar novo usuario (tb_usuario) atualizar a tabela (tb_aluno)
 
 3- Criar documento de analise dos requisitos
