@@ -41,7 +41,6 @@ def main():
             sys.exit()
 
         elif opcao == '2':
-            print("\n<<<<<<<<= MENU CADASTRAR USUARIO =>>>>>>>>>>")
             cadastrar_usuario()
 
         elif opcao == '1':

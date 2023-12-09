@@ -29,6 +29,8 @@ with con:
     'senha' VARCHAR(10) NOT NULL,
     'nome' VARCHAR(15) NOT NULL,
     'email' VARCHAR(15) NOT NULL,
+    'tipo_documento' TEXT,
+    'num_documento' VARCHAR(10) UNIQUE,
     'status' TEXT,
     'dt_nascimento' DATE,
     'dt_cadastro' DATE)
@@ -96,16 +98,16 @@ print('Tabelas Aluno - Usuario - Funcionario - Cargo - Plano - Endereço criadas
 
 # ----------------------  POPULA TABELA USUARIO ------------------------------
 with con:
-    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, status, dt_nascimento, dt_cadastro)VALUES('admrural','adm123','Eder Ferreira','admrural@gmail.com','Ativo','1979-09-25','2023-11-01')''')
-    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, status, dt_nascimento,  dt_cadastro)VALUES('loren','loren','Loren Pires','loren@loren.com','Inativo','2007-01-24','2022-11-01')''')
-    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, status, dt_nascimento,  dt_cadastro)VALUES('jleonel','admin','João Leonel Ferreira','jleonel@gmail.com','Ativo','1980-04-02','2023-10-01')''')
-    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, status, dt_nascimento,  dt_cadastro)VALUES('luisinha','anapires','Ana Luisa Pires','ana.luisa@ana.com','Ativo','1987-04-04','2023-09-01')''')
-    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, status, dt_nascimento,  dt_cadastro)VALUES('luvpof','12345','Luciana Ferreira','lu@gmail.com','Ativo','1979-09-25','2000-02-01')''')
-    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, status, dt_nascimento,  dt_cadastro)VALUES('aurora','au3355','Maria Aurora da Silva','aurora@aurora.com','Ativo','2002-03-17','2023-03-01')''')
-    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, status, dt_nascimento,  dt_cadastro)VALUES('alice2005','al2023','Alice Ortega','ortega@alice.com','Ativo','1988-01-20','2023-01-01')''')
-    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, status, dt_nascimento,  dt_cadastro)VALUES('toniamachado','272ton','Antonia Machado','tonia@gmail.com','Inativo','2001-12-05','2023-02-01')''')
-    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, status, dt_nascimento,  dt_cadastro)VALUES('caco79','carlos1979','Carlos Augusto Moraes','caco@caco.com','Ativo','2003-06-06','2023-05-01')''')
-    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, status, dt_nascimento,  dt_cadastro)VALUES('arimateia','ari68','José de Arimateia','arimateia@gmail.com','Ativo','1978-12-25','2023-08-01')''')
+    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('admrural','adm123','Eder Ferreira','admrural@gmail.com','RG',001036771,'Ativo','1979-09-25','2023-11-01')''')
+    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento,  dt_cadastro)VALUES('loren','loren','Loren Pires','loren@loren.com','Inativo','CPF',00134123456,'2007-01-24','2022-11-01')''')
+    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento,  dt_cadastro)VALUES('jleonel','admin','João Leonel Ferreira','jleonel@gmail.com','CPF',00134123457,'Ativo','1980-04-02','2023-10-01')''')
+    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento,  dt_cadastro)VALUES('luisinha','anapires','Ana Luisa Pires','ana.luisa@ana.com','RG',001036556,'Ativo','1987-04-04','2023-09-01')''')
+    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento,  dt_cadastro)VALUES('luvpof','lu123','Luciana Ferreira','lu@gmail.com','CPF',00103655632,'1979-09-25','Ativo','2000-02-01')''')
+    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento,  dt_cadastro)VALUES('aurora','au3355','Maria Aurora da Silva','aurora@aurora.com','CPF',00134123459,'Ativo','2002-03-17','2023-03-01')''')
+    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento,  dt_cadastro)VALUES('alice2005','al2023','Alice Ortega','ortega@alice.com','Ativo','RG',001022987,'1988-01-20','2023-01-01')''')
+    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento,  dt_cadastro)VALUES('toniamachado','272ton','Antonia Machado','tonia@gmail.com','CPF',00134123460,'Inativo','2001-12-05','2023-02-01')''')
+    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento,  dt_cadastro)VALUES('caco79','carlos1979','Carlos Augusto Moraes','caco@caco.com','CPF',00134123561,'Ativo','2003-06-06','2023-05-01')''')
+    cur.execute('''INSERT INTO tb_usuario(usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento,  dt_cadastro)VALUES('arimateia','ari68','José de Arimateia','arimateia@gmail.com','Passaport',33097512,'Ativo','1978-12-25','2023-08-01')''')
     con.commit()
 print("Tabela de Usuarios populada com sucesso!")
 

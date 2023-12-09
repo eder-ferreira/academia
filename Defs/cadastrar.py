@@ -41,13 +41,14 @@ def cadastrar_usuario():
     senha = input("Digite a senha=> ")
     nome = input("Digite o nome=> ")
     email = input("Digite o email=> ")
+    tipo_doc = input("Informe o tpo de documento [CPF-RG-Passaport-Outros]=> ")
+    n_documento = input("Digite o numero do documento=> ")
     status = 'Ativo'
     data_nascimento = input("Digite sua data de nascimento [aaaa-mm-dd]=> ")
     data_cadastro = date.today()
-
-    usuario = Usuario(id='', usuario=usuario, senha=senha, nome=nome, email=email, status=status,dt_cadastro=data_cadastro, dt_nascimento=data_nascimento)
-    cur.execute("INSERT INTO tb_usuario(id, usuario, senha, nome, email, status, dt_cadastro, dt_nascimento)VALUES(null,?,?,?,?,?,?,?)",
-        (usuario.usuario, usuario.senha, usuario.nome, usuario.email, usuario.status, usuario.dt_cadastro, usuario.dt_nascimento))
+    usuario = Usuario(id='', usuario=usuario, senha=senha, nome=nome, email=email,tipo_documento=tipo_doc, num_documento=n_documento, status=status,dt_cadastro=data_cadastro, dt_nascimento=data_nascimento)
+    cur.execute("INSERT INTO tb_usuario(id, usuario, senha, nome, email, tipo_documento, num_documento,  status, dt_cadastro, dt_nascimento)VALUES(null,?,?,?,?,?,?,?,?,?)",
+        (usuario.usuario, usuario.senha, usuario.nome, usuario.email, usuario.tipo_documento, usuario.num_documento, usuario.status, usuario.dt_cadastro, usuario.dt_nascimento))
     con.commit()
     print("Registros cadastrados na Tabela Usuario!")
 
