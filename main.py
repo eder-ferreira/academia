@@ -25,12 +25,12 @@ menu = [
 
 
 def tela_login():
-    print(f"\n\033[0;32mData: {data}"
+    print("   [[[====]]]      [[[====]]]"
+     f"\n\033[0;32mData: {data}"
       "\n<<<<<<<= TELA DE LOGIN =>>>>>>>>",
       "\n[0] - Sair"
       "\n[1] - Logar"
       "\n[2] - Cadastrar Novo Usuario\033[0m")
-
 
 def main():
     while True:
