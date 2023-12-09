@@ -38,6 +38,13 @@ def cadastrar_aluno():
         (aluno.matricula, aluno.nome, aluno.tipo_documento, aluno.num_documento,
          aluno.dt_nascimento, aluno.dt_cadastro))
     con.commit()
+
+    # INSERE O REGISTRO DO USUARIO NA TABELA ENDEREÇO
+    cur.execute(
+        "INSERT INTO tb_endereco(matricula, nome)VALUES(?,?)",
+        (aluno.matricula, aluno.nome))
+    con.commit()
+
     print("Registros cadastrados na Tabela Cliente!")
 
 
