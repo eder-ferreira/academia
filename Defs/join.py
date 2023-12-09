@@ -27,7 +27,6 @@ def join_funcionario_cargo():
     for row in resultados:
         tabela.add_row(row)
     print(tabela)
-join_funcionario_cargo()
 
 
 def salarios():
