@@ -25,11 +25,12 @@ def cadastrar_aluno():
     genero = input("Digite o sexo [M ou F]=> ")
     status = 'Ativo'
     data_cadastro = date.today()
+    data_nascimento = input("Digite sua data de nascimento [aaaa-mm-dd]=> ")
     usuario_id = ''
 
-    aluno = Aluno(id='',matricula=matricula, nome=nome_cliente, tipo_documento=tipo_doc, num_documento=n_documento, telefone=telefone, genero=genero, status=status, dt_cadastro=data_cadastro, usuario_id=usuario_id)
-    cur.execute("INSERT INTO tb_aluno(id, matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, usuario_id)VALUES(null,?,?,?,?,?,?,?,?,?)",
-        (aluno.matricula, aluno.nome, aluno.tipo_documento, aluno.num_documento, aluno.telefone,aluno.genero, aluno.status,aluno.dt_cadastro, aluno.usuario_id))
+    aluno = Aluno(id='',matricula=matricula, nome=nome_cliente, tipo_documento=tipo_doc, num_documento=n_documento, telefone=telefone, genero=genero, status=status, dt_cadastro=data_cadastro, usuario_id=usuario_id, dt_nascimento=data_nascimento)
+    cur.execute("INSERT INTO tb_aluno(id, matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento, usuario_id)VALUES(null,?,?,?,?,?,?,?,?,?,?)",
+        (aluno.matricula, aluno.nome, aluno.tipo_documento, aluno.num_documento, aluno.telefone,aluno.genero, aluno.status,aluno.dt_cadastro, aluno.usuario_id, aluno.dt_nascimento))
     con.commit()
     print("Registros cadastrados na Tabela Cliente!")
 
@@ -41,11 +42,12 @@ def cadastrar_usuario():
     nome = input("Digite o nome=> ")
     email = input("Digite o email=> ")
     status = 'Ativo'
+    data_nascimento = input("Digite sua data de nascimento [aaaa-mm-dd]=> ")
     data_cadastro = date.today()
 
-    usuario = Usuario(id='', usuario=usuario, senha=senha, nome=nome, email=email, status=status,dt_cadastro=data_cadastro)
-    cur.execute("INSERT INTO tb_usuario(id, usuario, senha, nome, email, status, dt_cadastro)VALUES(null,?,?,?,?,?,?)",
-        (usuario.usuario, usuario.senha, usuario.nome, usuario.email, usuario.status, usuario.dt_cadastro))
+    usuario = Usuario(id='', usuario=usuario, senha=senha, nome=nome, email=email, status=status,dt_cadastro=data_cadastro, dt_nascimento=data_nascimento)
+    cur.execute("INSERT INTO tb_usuario(id, usuario, senha, nome, email, status, dt_cadastro, dt_nascimento)VALUES(null,?,?,?,?,?,?,?)",
+        (usuario.usuario, usuario.senha, usuario.nome, usuario.email, usuario.status, usuario.dt_cadastro, usuario.dt_nascimento))
     con.commit()
     print("Registros cadastrados na Tabela Usuario!")
 
@@ -56,27 +58,29 @@ def cadastrar_funcionario():
     tipo_doc = input("Informe o tpo de documento [CPF-RG-Passaport-Outros]=> ")
     n_documento = input("Digite o numero do documento=> ")
     telefone = input("Digite o telefone=> ")
+    email = input("Digite o email=> ")
+    data_nascimento = input("Digite sua data de nascimento [aaaa-mm-dd]=> ")
     genero = input("Digite o sexo [M ou F]=> ")
     usuario_id = ''
     matricula = random.randint(1, 10000000)
     status = 'Ativo'
     data_contratacao = input("Informe a data de contratação [aaaa-mm-dd]=> ")
     data_desligamento = ''
-    listar_cargo()
     cargo_id = input("Informe o codigo do cargo=> ")
     data_cadastro = date.today()
 
     funcionario = Funcionario(id='', nome=nome, tipo_documento=tipo_doc, num_documento=n_documento,
-                              telefone=telefone, genero=genero, usuario_id=usuario_id, matricula=matricula,
+                              telefone=telefone, email=email, dt_nascimento=data_nascimento, genero=genero, usuario_id=usuario_id, matricula=matricula,
                               status=status, dt_contratacao=data_contratacao, dt_desligamento=data_desligamento,
                               cargo_id=cargo_id, dt_cadastro=data_cadastro)
 
     cur.execute("INSERT INTO tb_funcionario(id, nome, tipo_documento, num_documento, telefone, "
-                "genero, usuario_id, matricula, status, dt_contratacao,dt_desligamento,cargo_id,"
-                "dt_cadastro)VALUES(null,?,?,?,?,?,?,?,?,?,?,?,?)",
-                (funcionario.nome, funcionario.tipo_documento,funcionario.num_documento,
-                 funcionario.telefone,funcionario.genero, funcionario.usuario_id, funcionario.matricula,
-                 funcionario.status,funcionario.dt_contratacao, funcionario.dt_desligamento,funcionario.cargo_id,funcionario.dt_cadastro))
+                "email, dt_nascimento, genero, usuario_id, matricula, status, dt_contratacao, dt_desligamento, "
+                "cargo_id, dt_cadastro)VALUES(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                (funcionario.nome, funcionario.tipo_documento, funcionario.num_documento,
+                 funcionario.telefone, funcionario.email, funcionario.dt_nascimento, funcionario.genero,
+                 funcionario.usuario_id, funcionario.matricula, funcionario.status,funcionario.dt_contratacao,
+                 funcionario.dt_desligamento,funcionario.cargo_id,funcionario.dt_cadastro))
     con.commit()
     print("Registros cadastrados na Tabela Funcionario!")
 

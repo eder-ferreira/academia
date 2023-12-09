@@ -31,7 +31,7 @@ def join_funcionario_cargo():
 def salarios():
 
     escolha = input("""
-    Digite a quantidade =>  """)
+    Digite o periodo Ex.:Top 5 =>  """)
 
     cur.execute(f""" SELECT * FROM tb_cargo ORDER BY salario_base DESC LIMIT {escolha} """)
 

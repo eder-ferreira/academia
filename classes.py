@@ -1,6 +1,6 @@
 
 class Pessoa:
-    def __init__(self, id, nome, tipo_documento, num_documento, telefone, genero, usuario_id):
+    def __init__(self, id, nome, tipo_documento, num_documento, telefone, genero, usuario_id, dt_nascimento):
         self.id = id
         self.nome = nome
         self.tipo_documento = tipo_documento  #'RG', 'CPF', 'CNH', 'PASSAPORTE', 'OUTRO'
@@ -8,10 +8,11 @@ class Pessoa:
         self.telefone = telefone
         self.genero = genero                  # M / F
         self.usuario_id = usuario_id
+        self.dt_nascimento = dt_nascimento
 
 
 class Usuario:
-    def __init__(self, id, usuario, senha, nome, email, status, dt_cadastro):
+    def __init__(self, id, usuario, senha, nome, email, status, dt_cadastro, dt_nascimento):
         self.id = id
         self.usuario = usuario
         self.senha = senha
@@ -19,11 +20,12 @@ class Usuario:
         self.email = email
         self.status = status                # ATIVO / INATIVO
         self.dt_cadastro = dt_cadastro
+        self.dt_nascimento = dt_nascimento
 
 
 class Aluno(Pessoa):
-    def __init__(self, id, matricula, status, dt_cadastro, nome, tipo_documento, num_documento, telefone, genero, usuario_id):
-        super().__init__(id, nome, tipo_documento, num_documento, telefone, genero, usuario_id)
+    def __init__(self, id, matricula, status, dt_cadastro, nome, tipo_documento, num_documento, telefone, genero, usuario_id,dt_nascimento):
+        super().__init__(id, nome, tipo_documento, num_documento, telefone, genero, usuario_id,dt_nascimento)
         self.id = id
         self.matricula = matricula
         self.status = status                # ATIVO / INATIVO
@@ -31,8 +33,8 @@ class Aluno(Pessoa):
 
 
 class Funcionario(Pessoa):
-    def __init__(self, id, nome, tipo_documento, num_documento, telefone, genero, usuario_id, matricula, status, dt_contratacao,dt_desligamento,cargo_id,dt_cadastro):
-        super().__init__(id, nome, tipo_documento, num_documento, telefone, genero, usuario_id)
+    def __init__(self, id, nome, tipo_documento, num_documento, telefone,dt_nascimento, genero, usuario_id, matricula, status, dt_contratacao,dt_desligamento,cargo_id,dt_cadastro, email):
+        super().__init__(id, nome, tipo_documento, num_documento, telefone, genero, usuario_id, dt_nascimento)
         self.id = id
         self.matricula = matricula
         self.status = status                # ATIVO / INATIVO
@@ -40,6 +42,7 @@ class Funcionario(Pessoa):
         self.dt_desligamento = dt_desligamento
         self.cargo_id = cargo_id
         self.dt_cadastro = dt_cadastro
+        self.email = email
 
 
 class Cargo:
