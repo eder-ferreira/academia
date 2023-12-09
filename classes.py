@@ -71,8 +71,10 @@ class Plano:
 
 
 class Endereco:
-    def __init__(self, id, rua, numero, complemento, cep, bairro, cidade, estado, aluno_matricula, funcionario_matricula):
+    def __init__(self, id, matricula, nome, rua, numero, complemento, cep, bairro, cidade, estado):
         self.id = id
+        self.matricula = matricula
+        self.nome = nome
         self.rua = rua
         self.numero = numero
         self.complemento = complemento
@@ -80,7 +82,5 @@ class Endereco:
         self.bairro = bairro
         self.cidade = cidade
         self.estado = estado
-        self.aluno_matricula = aluno_matricula
-        self.funcionario_matricula = funcionario_matricula
 
 

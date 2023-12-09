@@ -34,8 +34,8 @@ def cadastrar_aluno():
 
     # INSERE O REGISTRO DO ALUNO NA TABELA USUARIO
     cur.execute(
-        "INSERT INTO tb_usuario(usuario_id, matricula, nome, tipo_documento, num_documento, dt_nascimento, dt_cadastro)VALUES(?,?,?,?,?,?,?)",
-        (aluno.id, aluno.matricula, aluno.nome, aluno.tipo_documento, aluno.num_documento,
+        "INSERT INTO tb_usuario(matricula, nome, tipo_documento, num_documento, dt_nascimento, dt_cadastro)VALUES(?,?,?,?,?,?)",
+        (aluno.matricula, aluno.nome, aluno.tipo_documento, aluno.num_documento,
          aluno.dt_nascimento, aluno.dt_cadastro))
     con.commit()
     print("Registros cadastrados na Tabela Cliente!")
@@ -62,6 +62,13 @@ def cadastrar_usuario():
 # INSERE O REGISTRO DO USUARIO NA TABELA ALUNO
     cur.execute("INSERT INTO tb_aluno(usuario_id, matricula, nome, tipo_documento, num_documento, dt_nascimento, dt_cadastro)VALUES(?,?,?,?,?,?,?)", (usuario.id, usuario.matricula, usuario.nome, usuario.tipo_documento, usuario.num_documento, usuario.dt_nascimento, usuario.dt_cadastro))
     con.commit()
+
+# INSERE O REGISTRO DO USUARIO NA TABELA ENDEREÇO
+    cur.execute(
+        "INSERT INTO tb_endereco(matricula, nome)VALUES(?,?)",
+        (usuario.matricula, usuario.nome))
+    con.commit()
+
 
     print("Registros cadastrados na Tabela Usuario!")
 
@@ -131,6 +138,8 @@ def cadastrar_plano():
 
 def cadastrar_endereco():
     print("\n<<<<<= CADASTRAR ENDEREÇO =>>>>>")
+    matricula = ''
+    nome = ''
     rua = input("Informe a [Rua-Av-Travessa]=> ")
     numero = input("Digite o número ou [S/N]=> ")
     complemento = input("Informe o complemento=> ")
@@ -138,11 +147,9 @@ def cadastrar_endereco():
     bairro = input("Digite o Bairro=> ")
     cidade = input("Digite a Cidade=> ")
     estado = input("Digite o Estado=> ")
-    aluno_matricula = ''
-    funcionario_matricula = ''
 
-    endereco = Endereco(id='', rua=rua, numero=numero, complemento=complemento,cep=cep, bairro=bairro,cidade=cidade, estado=estado, aluno_matricula=aluno_matricula, funcionario_matricula=funcionario_matricula)
-    cur.execute("INSERT INTO tb_endereco(id, rua, numero, complemento, cep, bairro, cidade, estado,aluno_matricula,funcionario_matricula)VALUES(null,?,?,?,?,?,?,?,?,?)",
-        (endereco.rua, endereco.numero, endereco.complemento, endereco.cep, endereco.bairro, endereco.cidade, endereco.estado, endereco.aluno_matricula, endereco.funcionario_matricula))
+    endereco = Endereco(id='', matricula=matricula, nome=nome, rua=rua, numero=numero, complemento=complemento,cep=cep, bairro=bairro,cidade=cidade, estado=estado)
+    cur.execute("INSERT INTO tb_endereco(id, rua, numero, complemento, cep, bairro, cidade, estado)VALUES(null,?,?,?,?,?,?,?,?)",
+        (endereco.matricula, endereco.nome, endereco.rua, endereco.numero, endereco.complemento, endereco.cep, endereco.bairro, endereco.cidade, endereco.estado))
     con.commit()
     print("Registros cadastrados na Tabela Endereços!")
