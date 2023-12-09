@@ -35,16 +35,16 @@ def tela_login():
 def main():
     while True:
         tela_login()
-        opcao = int(input("\033[0;32mInsira a opção=> \033[0m"))
-        if opcao == 0:
+        opcao = input("\033[0;32mInsira a opção=> \033[0m")
+        if opcao == '0':
             print("\n\033[0;31mFechando o programa....\n\033[0;0m")
             sys.exit()
 
-        elif opcao == 2:
+        elif opcao == '2':
             print("\n<<<<<<<<= MENU CADASTRAR USUARIO =>>>>>>>>>>")
             cadastrar_usuario()
 
-        elif opcao == 1:
+        elif opcao == '1':
             print("\n<<<<<<<<= \033[0;34mMENU LOGAR \033[0;0m=>>>>>>>>>>")
             login = input("Digite seu login=> ")
             senha = input("Digite sua senha=> ")
@@ -331,7 +331,8 @@ def main():
                             submenuRelatorio = input(
                                 "\n>>>>> MENU RELATORIOS <<<<<\n"
                                 "[31] - Funcionario vs Cargo\n"
-                                "[32] - Criar \n"
+                                "[32] - Maiores Salarios \n"
+                                "[33] - Aniversariantes do mês \n"
                                 "[ 0] - Voltar ao menu\n"
                                 "Insira a opção desejada=> ")
 
@@ -342,6 +343,14 @@ def main():
                             elif submenuRelatorio == "31":
                                 from Defs.join import join_funcionario_cargo
                                 join_funcionario_cargo()
+
+                            elif submenuRelatorio == "32":
+                                from Defs.join import salarios
+                                salarios()
+
+                            elif submenuRelatorio == "33":
+                                from Defs.join import aniversario
+                                aniversario()
 
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 25 a 30]\n\033[0m")
