@@ -10,7 +10,7 @@ from Defs.listar import listar_cargo
 
 
 import sqlite3
-database = 'academia.db'
+database = '/Users/ederpferreira/PycharmProjects/academia/academia.db'
 con = sqlite3.connect(database, check_same_thread=False)  # CRIA CONEXÃO
 cur = con.cursor()  # CRIA CURSOR
 
@@ -27,16 +27,23 @@ def cadastrar_aluno():
     data_cadastro = date.today()
     data_nascimento = input("Digite sua data de nascimento [aaaa-mm-dd]=> ")
     usuario_id = ''
-
-    aluno = Aluno(id='',matricula=matricula, nome=nome_cliente, tipo_documento=tipo_doc, num_documento=n_documento, telefone=telefone, genero=genero, status=status, dt_cadastro=data_cadastro, usuario_id=usuario_id, dt_nascimento=data_nascimento)
+    aluno = Aluno(id='',matricula=matricula, nome=nome_cliente, tipo_documento=tipo_doc, num_documento=n_documento, telefone=telefone, genero=genero, status=status, dt_cadastro=data_cadastro, dt_nascimento=data_nascimento, usuario_id=usuario_id)
     cur.execute("INSERT INTO tb_aluno(id, matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento, usuario_id)VALUES(null,?,?,?,?,?,?,?,?,?,?)",
-        (aluno.matricula, aluno.nome, aluno.tipo_documento, aluno.num_documento, aluno.telefone,aluno.genero, aluno.status,aluno.dt_cadastro, aluno.usuario_id, aluno.dt_nascimento))
+        (aluno.matricula, aluno.nome, aluno.tipo_documento, aluno.num_documento, aluno.telefone,aluno.genero, aluno.status, aluno.dt_cadastro, aluno.dt_nascimento, aluno.usuario_id))
+    con.commit()
+
+    # INSERE O REGISTRO DO ALUNO NA TABELA USUARIO
+    cur.execute(
+        "INSERT INTO tb_usuario(usuario_id, matricula, nome, tipo_documento, num_documento, dt_nascimento, dt_cadastro)VALUES(?,?,?,?,?,?,?)",
+        (aluno.id, aluno.matricula, aluno.nome, aluno.tipo_documento, aluno.num_documento,
+         aluno.dt_nascimento, aluno.dt_cadastro))
     con.commit()
     print("Registros cadastrados na Tabela Cliente!")
 
 
 def cadastrar_usuario():
     print("\n<<<<<= CADASTRAR USUARIO =>>>>>")
+    matricula = random.randint(1, 10000000)
     usuario = input("Digite o usuario=> ")
     senha = input("Digite a senha=> ")
     nome = input("Digite o nome=> ")
@@ -44,14 +51,19 @@ def cadastrar_usuario():
     tipo_doc = input("Informe o tpo de documento [CPF-RG-Passaport-Outros]=> ")
     n_documento = input("Digite o numero do documento=> ")
     status = 'Ativo'
-    data_nascimento = input("Digite sua data de nascimento [aaaa-mm-dd]=> ")
     data_cadastro = date.today()
-    usuario = Usuario(id='', usuario=usuario, senha=senha, nome=nome, email=email,tipo_documento=tipo_doc, num_documento=n_documento, status=status,dt_cadastro=data_cadastro, dt_nascimento=data_nascimento)
-    cur.execute("INSERT INTO tb_usuario(id, usuario, senha, nome, email, tipo_documento, num_documento,  status, dt_cadastro, dt_nascimento)VALUES(null,?,?,?,?,?,?,?,?,?)",
-        (usuario.usuario, usuario.senha, usuario.nome, usuario.email, usuario.tipo_documento, usuario.num_documento, usuario.status, usuario.dt_cadastro, usuario.dt_nascimento))
-    con.commit()
-    print("Registros cadastrados na Tabela Usuario!")
+    data_nascimento = input("Digite sua data de nascimento [aaaa-mm-dd]=> ")
 
+    usuario = Usuario(id='', matricula=matricula, usuario=usuario, senha=senha, nome=nome, email=email, tipo_documento=tipo_doc, num_documento=n_documento, status=status, dt_cadastro=data_cadastro, dt_nascimento=data_nascimento)
+    cur.execute("INSERT INTO tb_usuario(id, matricula, usuario, senha, nome, email, tipo_documento, num_documento, status, dt_cadastro, dt_nascimento)VALUES(null,?,?,?,?,?,?,?,?,?,?)",
+        (usuario.matricula, usuario.usuario, usuario.senha, usuario.nome, usuario.email, usuario.tipo_documento, usuario.num_documento, usuario.status, usuario.dt_cadastro, usuario.dt_nascimento))
+    con.commit()
+
+# INSERE O REGISTRO DO USUARIO NA TABELA ALUNO
+    cur.execute("INSERT INTO tb_aluno(usuario_id, matricula, nome, tipo_documento, num_documento, dt_nascimento, dt_cadastro)VALUES(?,?,?,?,?,?,?)", (usuario.id, usuario.matricula, usuario.nome, usuario.tipo_documento, usuario.num_documento, usuario.dt_nascimento, usuario.dt_cadastro))
+    con.commit()
+
+    print("Registros cadastrados na Tabela Usuario!")
 
 def cadastrar_funcionario():
     print("\n<<<<<= CADASTRAR FUNCIONARIO =>>>>>")

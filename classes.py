@@ -12,8 +12,9 @@ class Pessoa:
 
 
 class Usuario:
-    def __init__(self, id, usuario, senha, nome, email, tipo_documento, num_documento,status, dt_cadastro, dt_nascimento):
+    def __init__(self, id, matricula, usuario, senha, nome, email, tipo_documento, num_documento,status, dt_cadastro, dt_nascimento):
         self.id = id
+        self.matricula = matricula
         self.usuario = usuario
         self.senha = senha
         self.nome = nome

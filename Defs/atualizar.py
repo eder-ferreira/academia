@@ -13,6 +13,8 @@ def atualiza_aluno():
     con.commit()
     print(f"O Id: {id} no campo: {campo} foi atualizado para: {valor}")
 
+    cur.execute(f'''UPDATE tb_usuario SET '{campo}' == '{valor}' WHERE id == '{id}' ''')
+    con.commit()
 
 def atualiza_usuario():
     print("\n<<<<<= ATUALIZAR USUARIO =>>>>>")
@@ -22,6 +24,9 @@ def atualiza_usuario():
     cur.execute(f'''UPDATE tb_usuario SET '{campo}' == '{valor}' WHERE id == '{id}' ''')
     con.commit()
     print(f"O Id: {id} no campo: {campo} foi atualizado para: {valor}")
+
+    cur.execute(f'''UPDATE tb_aluno SET '{campo}' == '{valor}' WHERE id == '{id}' ''')
+    con.commit()
 
 def atualiza_funcionario():
     print("\n<<<<<= ATUALIZAR FUNCIONARIO =>>>>>")
