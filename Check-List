@@ -9,7 +9,7 @@
  OK - Criar nova tabela com JOIN para vincular o setor e o salario
     - função para filtrar alunos (M ou F)
  OK - quando cadastrar novo usuario (tb_usuario) atualizar a tabela (tb_aluno) com a mesma matricula e id
-    - quando cadastrar aluno (tb_aluno) atualizar na tabela (tb_usuario)
+ OK - quando cadastrar aluno (tb_aluno) atualizar na tabela (tb_usuario)
 
 3- Criar documento de analise dos requisitos
 4- Atualizar novamente os diagramas
