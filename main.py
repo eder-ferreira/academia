@@ -5,10 +5,7 @@ from Defs.cadastrar import cadastrar_usuario
 from Defs.cadastrar import cadastrar_funcionario
 from Defs.cadastrar import cadastrar_cargo
 from Defs.cadastrar import cadastrar_plano
-from Defs.cadastrar import cadastrar_endereco
 from Defs.validar_login import autentica_login
-from Defs.atualizar import atualiza_end_completo
-
 
 data = date.datetime.now()
 dia = data.day

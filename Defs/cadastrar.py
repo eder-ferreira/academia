@@ -76,9 +76,9 @@ def cadastrar_usuario():
 
 # INSERE O REGISTRO DO USUARIO NA TABELA ALUNO
     cur.execute("INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, dt_nascimento, "
-                "dt_cadastro)VALUES(?,?,?,?,?,?)",
+                "dt_cadastro,status)VALUES(?,?,?,?,?,?,?)",
                 (usuario.matricula, usuario.nome, usuario.tipo_documento,
-                 usuario.num_documento, usuario.dt_nascimento, usuario.dt_cadastro))
+                 usuario.num_documento, usuario.dt_nascimento, usuario.dt_cadastro, usuario.status))
     con.commit()
 
 # INSERE O REGISTRO DO USUARIO NA TABELA ENDEREÇO
@@ -86,9 +86,10 @@ def cadastrar_usuario():
         "INSERT INTO tb_endereco(matricula, nome)VALUES(?,?)",
         (usuario.matricula, usuario.nome))
     con.commit()
-
-
-    print("Registros cadastrados na Tabela Usuario!")
+    print("Usuário criado com sucesso!!!")
+    print("\033[0;34mRegistros cadastrados na Tabela Usuario!\033[0;0m")
+    print("\033[0;34mRegistros criado na Tabela Aluno!\033[0;0m")
+    print("\033[0;34mRegistros criado na Tabela Endereço!\033[0;0m")
 
 def cadastrar_funcionario():
     print("\n<<<<<= CADASTRAR FUNCIONARIO =>>>>>")

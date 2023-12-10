@@ -14,7 +14,8 @@
 3- Criar documento de analise dos requisitos
 4- Atualizar novamente os diagramas
 
-Proximas correções
+
+PROXIMAS CORREÇÕES
 
 1- Verificação no banco se o registro já existe
 2- Tratar no menu [17] - Planos (Digite o codigo, descrição ou nivel para pesquisar=>)
@@ -25,3 +26,6 @@ OK - Endereços, não está funcionando
 -  Tratar para trazer sem a matricula e o nome no print
 
 4- Trata Excluir [30] - Endereços, tratar pois está vinculado a um Usuario, Funcionario ou Cliente
+- Criar campo Usuario e Aluno status (Ativo ou Inativo)
+
+5- Colocar a o cria_banco dentro de uma função para ser chamado no main
