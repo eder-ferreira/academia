@@ -184,19 +184,19 @@ with con:
 print("Tabela de Planos populada com sucesso!")
 
 # ----------------------  POPULA TABELA ENDEREÇOS ------------------------------
-# with con:
-#     cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua das Couves',33,'Qd 04','78042-804','São José','Cuiabá','MT','','')''')
-#     cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua das Abobrinhas',43,'Qd 33','78045-804','Verdão','Cuiabá','MT','','')''')
-#     cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua das Margaridas',63,'Qd 28','78047-804','Dom Aquino','Cuiabá','MT','','')''')
-#     cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua da Roseira',38,'Qd 84','78042-806','São José','Cuiabá','MT','','')''')
-#     cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua dos Ipês',30,'Qd 03','78042-809','Santa Rosa','Cuiabá','MT','','')''')
-#     cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua Aroeira',333,'Qd 06','78041-804','Lixeira','Cuiabá','MT','','')''')
-#     cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua Flamboiam',42,'Qd 01','78045-904','São José','Cuiabá','MT','','')''')
-#     cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Avenida Miguel Sutil ',1334,'','78048-808','Goiabeiras','Cuiabá','MT','','')''')
-#     cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Avenida do CPA',2033,' ','78040-800','Centro Sul','Cuiabá','MT','','')''')
-#     cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Avenida Getulio Vargas',5001,' ','78042-804','Centro Norte','Cuiabá','MT','','')''')
-#     con.commit()
-# print("Tabela de Endereços populada com sucesso!")
+with con:
+    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua das Couves',33,'Qd 04','78042-804','São José','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua das Abobrinhas',43,'Qd 33','78045-804','Verdão','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua das Margaridas',63,'Qd 28','78047-804','Dom Aquino','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua da Roseira',38,'Qd 84','78042-806','São José','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua dos Ipês',30,'Qd 03','78042-809','Santa Rosa','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua Aroeira',333,'Qd 06','78041-804','Lixeira','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua Flamboiam',42,'Qd 01','78045-904','São José','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Avenida Miguel Sutil ',1334,'','78048-808','Goiabeiras','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Avenida do CPA',2033,' ','78040-800','Centro Sul','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Avenida Getulio Vargas',5001,' ','78042-804','Centro Norte','Cuiabá','MT','','')''')
+    con.commit()
+print("Tabela de Endereços populada com sucesso!")
 
 # ----------------------  FECHA BANCO E CONEXÃO ------------------------------
 cur.close()  # FECHA O OBJETO

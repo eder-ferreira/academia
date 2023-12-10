@@ -1,5 +1,5 @@
 import sqlite3
-database = 'academia.db'
+database = '/Users/ederpferreira/PycharmProjects/academia/academia.db'
 con = sqlite3.connect(database, check_same_thread=False)  # CRIA CONEXÃO
 cur = con.cursor()  # CRIA CURSOR
 
@@ -12,9 +12,6 @@ def atualiza_aluno():
     cur.execute(f'''UPDATE tb_aluno SET '{campo}' == '{valor}' WHERE id == '{id}' ''')
     con.commit()
     print(f"O Id: {id} no campo: {campo} foi atualizado para: {valor}")
-
-    cur.execute(f'''UPDATE tb_usuario SET '{campo}' == '{valor}' WHERE id == '{id}' ''')
-    con.commit()
 
 def atualiza_usuario():
     print("\n<<<<<= ATUALIZAR USUARIO =>>>>>")
@@ -63,3 +60,22 @@ def atualiza_endereco():
     cur.execute(f'''UPDATE tb_endereco SET '{campo}' == '{valor}' WHERE id == '{id}' ''')
     con.commit()
     print(f"O Id: {id} no campo: {campo} foi atualizado para: {valor}")
+
+
+def atualiza_end_completo():
+    print("\n<<<<<= CADASTRAR ENDEREÇO =>>>>>")
+    id = input("Informe o Id a ser atualizado => ")
+    rua = input("Digite a [Rua-Av-Travessa]=> ")
+    numero = input("Digite o número ou [S/N]=> ")
+    complemento = input("Informe o complemento=> ")
+    cep = input("Digite o CEP  Ex.:[78043-880]=> ")
+    bairro = input("Digite o Bairro=> ")
+    cidade = input("Digite a Cidade=> ")
+    estado = input("Digite o Estado=> ")
+
+    cur.execute(f'''UPDATE tb_endereco SET rua = '{rua}', numero = '{numero}', 
+    complemento = '{complemento}', cep = '{cep}', bairro = '{bairro}', 
+    cidade = '{cidade}', estado = '{estado}' WHERE id = '{id}' ''')
+    con.commit()
+    print(f"O Id: {id} foi atualizado com sucesso.")
+

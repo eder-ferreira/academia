@@ -7,6 +7,8 @@ from Defs.cadastrar import cadastrar_cargo
 from Defs.cadastrar import cadastrar_plano
 from Defs.cadastrar import cadastrar_endereco
 from Defs.validar_login import autentica_login
+from Defs.atualizar import atualiza_end_completo
+
 
 data = date.datetime.now()
 dia = data.day
@@ -99,7 +101,9 @@ def main():
                                 cadastrar_plano()
 
                             elif submenuCadastrar == "6":
-                                cadastrar_endereco()
+                                from Defs.listar import listar_endereco
+                                listar_endereco()
+                                atualiza_end_completo()
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 a 6]\n\033[0;0m")
 
@@ -252,8 +256,8 @@ def main():
                             elif submenuAtualiza == "24":
                                 from Defs.listar import listar_endereco
                                 listar_endereco()
-                                from Defs.atualizar import atualiza_endereco
-                                atualiza_endereco()
+                                from Defs.atualizar import atualiza_end_completo
+                                atualiza_end_completo()
                                 from Defs.listar import listar_endereco
                                 listar_endereco()
                             else:
