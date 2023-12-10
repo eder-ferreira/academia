@@ -17,3 +17,9 @@
 Proximas correções
 
 1- Verificação no banco se o registro já existe
+2- Tratar no menu [17] - Planos (Digite o codigo, descrição ou nivel para pesquisar=>)
+aceita valore vazio e enter
+
+3- Pequisar [18]
+OK - Endereços, não está funcionando
+-  Tratar para trazer sem a matricula e o nome no print

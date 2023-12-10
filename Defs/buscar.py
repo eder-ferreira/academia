@@ -77,7 +77,7 @@ def buscar_endereco():
     print("\n<<<<<= BUSCAR ENDEREÇO =>>>>>")
     busca = input("Digite o Nome da Rua ou cidade ou Bairro ou cep para pesquisar=> ")
     resultados = cur.execute(
-        f"SELECT *FROM tb_endereco WHERE rua == '{busca}' or cep == '{busca}' or bairro == '{busca}'")
+        f"SELECT *FROM tb_endereco WHERE rua = '{busca}' or cep = '{busca}' or bairro = '{busca}' or cidade = '{busca}'")
     resultados = cur.fetchall()
     tabela = PrettyTable()
     tabela.field_names = [desc[0] for desc in cur.description]
