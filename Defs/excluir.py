@@ -31,7 +31,7 @@ def excluir_funcionario():
 def excluir_cargo():
     print("\n<<<<<= EXCLUIR CARGOS E SALARIOS =>>>>>")
     exclui = input("Informe o id ser excluido => ")
-    con.execute("DELETE FROM tb_cargo WHERE id = ?",exclui)
+    con.execute(f"DELETE FROM tb_cargo WHERE id =='{exclui}'")
     con.commit()
     print(f"Registro id: {exclui} excluido com sucesso!!!")
 
@@ -39,7 +39,7 @@ def excluir_cargo():
 def excluir_plano():
     print("\n<<<<<= EXCLUIR PLANOS - MENSAL =>>>>>")
     exclui = input("Informe o id ou codigo ser excluido => ")
-    con.execute(f"DELETE FROM tb_plano WHERE id =='{exclui}' codigo == '{exclui}'")
+    con.execute(f"DELETE FROM tb_plano WHERE id =='{exclui}' or codigo == '{exclui}'")
     con.commit()
     print(f"Registro id: {exclui} excluido com sucesso!!!")
 

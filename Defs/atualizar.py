@@ -63,7 +63,7 @@ def atualiza_endereco():
 
 
 def atualiza_end_completo():
-    print("\n<<<<<= CADASTRAR ENDEREÇO =>>>>>")
+    print("\n<<<<<= CADASTRAR / ATUALIZAR ENDEREÇO COMPLETO =>>>>>")
     id = input("Informe o Id a ser atualizado => ")
     rua = input("Digite a [Rua-Av-Travessa]=> ")
     numero = input("Digite o número ou [S/N]=> ")
