@@ -29,5 +29,6 @@ OK - Endereços, não está funcionando
 - Criar campo Usuario e Aluno status (Ativo ou Inativo)
 
 5- Colocar a o cria_banco dentro de uma função para ser chamado no main
-
 6- Criar função calcula idade
+7- Ajustar data padrão BR
+8- Criar opção de 0 pra sair quando iniciado o cadastro
