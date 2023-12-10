@@ -103,6 +103,7 @@ def main():
                             elif submenuCadastrar == "6":
                                 from Defs.listar import listar_endereco
                                 listar_endereco()
+                                from Defs.atualizar import atualiza_end_completo
                                 atualiza_end_completo()
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 a 6]\n\033[0;0m")
