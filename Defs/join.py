@@ -3,7 +3,7 @@ from datetime import datetime
 from datetime import date
 
 import sqlite3
-database = 'academia.db'
+database = '/Users/ederpferreira/PycharmProjects/academia/academia.db'
 con = sqlite3.connect(database, check_same_thread=False)
 cur = con.cursor()
 
@@ -54,9 +54,12 @@ def aniversario():
 
     # cur.execute("""SELECT strftime('%d-%m-%Y', 'now')""")
     # cur.execute("""SELECT * FROM tb_funcionario WHERE dt_nascimento BETWEEN '1900-01-01' AND '2000-01-01'""")
-    mes = input("Insira o mês dos aniversariantes => ")
-    cur.execute(f"""SELECT nome, dt_nascimento FROM tb_funcionario WHERE strftime('%m', dt_nascimento) = '{mes}'""")
+    # cur.execute(f"""SELECT nome, dt_nascimento FROM tb_funcionario WHERE strftime('%m', dt_nascimento) = '{mes}'""")
 
+    mes = input("Insira o mês dos aniversariantes => ")
+    cur.execute(f"""SELECT nome, dt_nascimento, strftime('%Y', 'now') - strftime('%Y', dt_nascimento) AS idade FROM 
+    tb_funcionario WHERE strftime('%m', dt_nascimento) = '{mes}'""")
+    print(f"\nPARABÉNS AOS ANIVERSARIANTES NO MÊS {mes}!")
     resultados = cur.fetchall()
     tabela = PrettyTable()
     tabela.field_names = [desc[0] for desc in cur.description]
@@ -64,7 +67,7 @@ def aniversario():
         tabela.add_row(row)
     print(tabela)
 
-
+aniversario()
 
 def calculaIdade():
     nome = input('Digite o nome: ')
@@ -73,4 +76,18 @@ def calculaIdade():
     idade = date.today().year - datetime.strptime(nascimento, '%d/%m/%Y').year
     print(f'Olá! O nome completo é {nome} {sobrenome} e hoje você tem {idade} anos')
 
-calculaIdade()
+
+
+def idade():
+    cur.execute("""
+    SELECT nome, dt_nascimento, strftime('%Y', 'now') - strftime('%Y', dt_nascimento) 
+    AS idade
+    FROM tb_funcionario
+    """)
+
+    resultados = cur.fetchall()
+    tabela = PrettyTable()
+    tabela.field_names = [desc[0] for desc in cur.description]
+    for row in resultados:
+        tabela.add_row(row)
+    print(tabela)
