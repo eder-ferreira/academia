@@ -5,10 +5,10 @@ cur = con.cursor()
 
 # ----------------------  POPULA TABELA USUARIO ------------------------------
 with con:
-    cur.execute('''INSERT INTO tb_usuario(matricula,usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('0123456','admrural','adm123','Eder Ferreira','admrural@gmail.com','RG',001036771,'Ativo','1979-09-25','2023-11-01')''')
+    cur.execute('''INSERT INTO tb_usuario(matricula,usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('0123456','admrural','adm123','Eder Ferreira','admrural@gmail.com','RG','001036771','Ativo','1979-09-25','2023-11-01')''')
     cur.execute('''INSERT INTO tb_usuario(matricula,usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('0123457','loren','loren','Loren Pires','loren@loren.com','CPF',00134123456,'Inativo','2007-01-24','2022-11-01')''')
     cur.execute('''INSERT INTO tb_usuario(matricula,usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('0123458','jleonel','admin','João Leonel Ferreira','jleonel@gmail.com','CPF',00134123457,'Ativo','1980-04-02','2023-10-01')''')
-    cur.execute('''INSERT INTO tb_usuario(matricula,usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('0123459','luisinha','anapires','Ana Luisa Pires','ana.luisa@ana.com','RG',001036556,'Ativo','1987-04-04','2023-09-01')''')
+    cur.execute('''INSERT INTO tb_usuario(matricula,usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('0123459','luisinha','anapires','Ana Luisa Pires','ana.luisa@ana.com',' RG',001036556,'Ativo','1987-04-04','2023-09-01')''')
     cur.execute('''INSERT INTO tb_usuario(matricula,usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('0123460','luvpof','lu123','Luciana Ferreira','lu@gmail.com','CPF',00103655632,'Ativo','1979-09-25','2000-02-01')''')
     cur.execute('''INSERT INTO tb_usuario(matricula,usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('0123461','aurora','au3355','Maria Aurora da Silva','aurora@aurora.com','CPF',00134123459,'Ativo','2002-03-17','2023-03-01')''')
     cur.execute('''INSERT INTO tb_usuario(matricula,usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('0123462','alice2005','al2023','Alice Ortega','ortega@alice.com','RG',001022987,'Ativo','1988-01-20','2023-01-01')''')
@@ -17,6 +17,21 @@ with con:
     cur.execute('''INSERT INTO tb_usuario(matricula,usuario, senha, nome, email, tipo_documento, num_documento, status, dt_nascimento, dt_cadastro)VALUES('0123465','arimateia','ari68','José de Arimateia','arimateia@gmail.com','Passaport',33097512,'Ativo','1978-12-25','2023-08-01')''')
     con.commit()
 print("Tabela de Usuarios populada com sucesso!")
+
+# ----------------------  POPULA TABELA ALUNOS ------------------------------
+with con:
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES('0123456','Eder Ferreira','RG',001036771,'6799996-1792','M','Ativo','1979-09-25','1980-05-23')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES('0123457','Loren Pires','CPF',00134123456,'6899996-1722','M','Ativo','2007-01-24','1985-12-14')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES('0123458','João Leonel Ferreira','CPF',00134123457,'6999996-1800','F','Ativo','1980-04-02','1990-05-13')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES('0123459','Ana Luisa Pires','RG',001036556,'1199996-1733','M','Ativo','1987-04-04','1988-12-11')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES('0123460','Luciana Ferreira','CPF',00103655632,'6699996-1392','M','Ativo','1979-09-25','1997-01-23')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES('0123461','Maria Aurora da Silva','CPF',00134123459,'6599996-1295','F','Ativo','2002-03-17','2001-05-03')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES('0123462','Alice Ortega','RG',001022987,'2199996-1891','M','Ativo','1988-01-20','2005-08-23')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES('0123463','Antonia Machado','CPF',00134123460,'4499996-1202','F','Ativo','2001-12-05','2000-07-18')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES('0123464','Carlos Augusto Moraes','CPF',00134123561,'6299996-1112','F','Ativo','2003-06-06','1986-12-23')''')
+    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES('0123465','José de Arimateia','Passaport',33097512,'6799996-0093','F','Ativo','1978-12-25','1999-07-07')''')
+    con.commit()
+print("Tabela de Alunos populada com sucesso!")
 
 
 # ----------------------  POPULA TABELA FUNCIONARIO ------------------------------
@@ -43,21 +58,6 @@ with con:
     cur.execute('''INSERT INTO tb_funcionario(nome, tipo_documento, num_documento, telefone, email, dt_nascimento, genero, matricula, status, dt_contratacao,dt_desligamento,cargo_id, dt_cadastro)VALUES('Marta Maria da Conceição','CPF',00004564930,'6795996-2030','mmaria@email.com','1997-12-23','F','00148510','Aposentada','1999-05-01','2023-08-01',999,'2023-12-05')''')
     con.commit()
 print("Tabela de Funcionario populada com sucesso!")
-
-# ----------------------  POPULA TABELA ALUNOS ------------------------------
-with con:
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES(0269533,'João da Silva','CPF',09834555700,'6799996-1792','M','Ativo','2019-05-01','1980-05-23')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES(0269544,'José Francisco do Carmo','CPF',09834577722,'6899996-1722','M','Ativo','2023-12-01','1985-12-14')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES(0269555,'Maria José Costa','CPF',09834574400,'6999996-1800','F','Ativo','2023-03-01','1990-05-13')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES(0269566,'Artemio Machado','CPF',09204577700,'1199996-1733','M','Ativo','2023-05-01','1988-12-11')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES(0269577,'Leonel de Paula','CPF',09834577711,'6699996-1392','M','Ativo','2022-02-01','1997-01-23')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES(0269588,'Luiza de Souza','CPF',09834579900,'6599996-1295','F','Ativo','2020-06-01','2001-05-03')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES(0269599,'Loren Pires','CPF',09835577700,'2199996-1891','M','Ativo','2023-05-01','2005-08-23')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES(0269500,'Ana Maria Ferreira','CPF',09832177700,'4499996-1202','F','Ativo','2082-05-01','2000-07-18')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES(0269511,'Amora Oliveira','CPF',09834566600,'6299996-1112','F','Ativo','2023-05-01','1986-12-23')''')
-    cur.execute('''INSERT INTO tb_aluno(matricula, nome, tipo_documento, num_documento, telefone, genero, status, dt_cadastro, dt_nascimento)VALUES(0269522,'Francisca Matos Freitas','CPF',09094577700,'6799996-0093','F','Ativo','1999-07-01','1999-07-07')''')
-    con.commit()
-print("Tabela de Alunos populada com sucesso!")
 
 # ----------------------  POPULA TABELA CARGOS ------------------------------
 with con:
@@ -93,16 +93,16 @@ print("Tabela de Planos populada com sucesso!")
 
 # ----------------------  POPULA TABELA ENDEREÇOS ------------------------------
 with con:
-    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua das Couves',33,'Qd 04','78042-804','São José','Cuiabá','MT','','')''')
-    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua das Abobrinhas',43,'Qd 33','78045-804','Verdão','Cuiabá','MT','','')''')
-    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua das Margaridas',63,'Qd 28','78047-804','Dom Aquino','Cuiabá','MT','','')''')
-    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua da Roseira',38,'Qd 84','78042-806','São José','Cuiabá','MT','','')''')
-    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua dos Ipês',30,'Qd 03','78042-809','Santa Rosa','Cuiabá','MT','','')''')
-    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua Aroeira',333,'Qd 06','78041-804','Lixeira','Cuiabá','MT','','')''')
-    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Rua Flamboiam',42,'Qd 01','78045-904','São José','Cuiabá','MT','','')''')
-    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Avenida Miguel Sutil ',1334,'','78048-808','Goiabeiras','Cuiabá','MT','','')''')
-    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Avenida do CPA',2033,' ','78040-800','Centro Sul','Cuiabá','MT','','')''')
-    cur.execute('''INSERT INTO tb_endereco(rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('Avenida Getulio Vargas',5001,' ','78042-804','Centro Norte','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(matricula,nome,rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('0123456','Eder Ferreira','Rua das Couves',33,'Qd 04','78042-804','São José','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(matricula,nome,rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('0123457','Loren Pires','Rua das Abobrinhas',43,'Qd 33','78045-804','Verdão','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(matricula,nome,rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('0123458','João Leonel Ferreira','Rua das Margaridas',63,'Qd 28','78047-804','Dom Aquino','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(matricula,nome,rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('0123459','Ana Luisa Pires','Rua da Roseira',38,'Qd 84','78042-806','São José','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(matricula,nome,rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('0123460','Luciana Ferreira','Rua dos Ipês',30,'Qd 03','78042-809','Santa Rosa','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(matricula,nome,rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('0123461','Maria Aurora da Silva','Rua Aroeira',333,'Qd 06','78041-804','Lixeira','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(matricula,nome,rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('0123462','Alice Ortega','Rua Flamboiam',42,'Qd 01','78045-904','São José','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(matricula,nome,rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('0123463','Antonia Machado','Avenida Miguel Sutil ',1334,'','78048-808','Goiabeiras','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(matricula,nome,rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('0123464','Carlos Augusto Moraes','Avenida do CPA',2033,' ','78040-800','Centro Sul','Cuiabá','MT','','')''')
+    cur.execute('''INSERT INTO tb_endereco(matricula,nome,rua, numero, complemento, cep, bairro, cidade, estado,matricula,nome) VALUES('0123465','José de Arimateia','Avenida Getulio Vargas',5001,' ','78042-804','Centro Norte','Cuiabá','MT','','')''')
     con.commit()
 print("Tabela de Endereços populada com sucesso!")
 
