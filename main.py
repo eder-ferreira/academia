@@ -1,5 +1,6 @@
 import sys
-import datetime as date
+from datetime import datetime
+from datetime import date
 from Defs.cadastrar import cadastrar_aluno
 from Defs.cadastrar import cadastrar_usuario
 from Defs.cadastrar import cadastrar_funcionario
@@ -7,7 +8,7 @@ from Defs.cadastrar import cadastrar_cargo
 from Defs.cadastrar import cadastrar_plano
 from Defs.validar_login import autentica_login
 
-data = date.datetime.now()
+data = date.today()
 dia = data.day
 mes = data.month
 ano = data.year
@@ -25,7 +26,7 @@ menu = [
 
 def tela_login():
     print("   [[[====]]]      [[[====]]]"
-     f"\n\033[0;32mData: {data}"
+     f"\n\033[0;32mData: {data} "
       "\n<<<<<<<= TELA DE LOGIN =>>>>>>>>",
       "\n[0] - Sair"
       "\n[1] - Logar"

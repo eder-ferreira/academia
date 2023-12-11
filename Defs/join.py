@@ -1,7 +1,9 @@
-import datetime as date
 from prettytable import PrettyTable
+from datetime import datetime
+from datetime import date
+
 import sqlite3
-database = '/Users/ederpferreira/PycharmProjects/academia/academia.db'
+database = 'academia.db'
 con = sqlite3.connect(database, check_same_thread=False)
 cur = con.cursor()
 
@@ -61,3 +63,14 @@ def aniversario():
     for row in resultados:
         tabela.add_row(row)
     print(tabela)
+
+
+
+def calculaIdade():
+    nome = input('Digite o nome: ')
+    sobrenome = input('Digite o sobrenome: ')
+    nascimento = input('Digite a data de nascimento: ')
+    idade = date.today().year - datetime.strptime(nascimento, '%d/%m/%Y').year
+    print(f'Olá! O nome completo é {nome} {sobrenome} e hoje você tem {idade} anos')
+
+calculaIdade()
