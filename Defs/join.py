@@ -92,12 +92,12 @@ def idade():
     print(tabela)
 
 def gera_grafico_salario():
-    import matplotlib.pyplot as plt
     cur.execute(f""" SELECT setor, salario_base FROM tb_cargo ORDER BY salario_base DESC LIMIT {escolha} """)
     resultados = cur.fetchall()
     nome, setor = zip(*resultados)
 
     # Criar o gráfico
+    import matplotlib.pyplot as plt
     plt.style.use("Solarize_Light2")
     nome, setor = zip(*resultados)
     plt.bar(nome, setor, label='Setor',color="b")
@@ -105,6 +105,40 @@ def gera_grafico_salario():
     plt.xlabel('Setor')
     plt.ylabel('Salário')
     plt.title('Salário por Setor')
+    plt.legend()
+    plt.xticks(rotation=45)
+    plt.show()
+
+def alunos_matriculados_mes():
+    ano = input("Insira o ano da pesquisa => ")
+    cur.execute(f"""
+    SELECT strftime('%m', dt_cadastro) AS mes, 
+    COUNT(*) AS qtde_matriculas 
+    FROM tb_aluno
+    WHERE (strftime('%Y', dt_cadastro) = '{ano}')
+    GROUP BY mes 
+    ORDER BY mes""")
+
+
+
+    print(f"\nALUNOS MATRICULADO NO ANO {ano} POR MES!")
+    resultados = cur.fetchall()
+    tabela = PrettyTable()
+    tabela.field_names = [desc[0] for desc in cur.description]
+    for row in resultados:
+        tabela.add_row(row)
+    print(tabela)
+
+
+    # Criar o gráfico
+    import matplotlib.pyplot as plt
+    plt.style.use("Solarize_Light2")
+    mes, qtde_matriculas = zip(*resultados)
+    plt.bar(mes, qtde_matriculas, label='Qtde',color="g")
+
+    plt.xlabel('Mês')
+    plt.ylabel('Quantidade')
+    plt.title(f'Alunos matriculados no ano {ano} por mês')
     plt.legend()
     plt.xticks(rotation=45)
     plt.show()

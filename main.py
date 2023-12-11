@@ -335,6 +335,7 @@ def main():
                                 "[31] - Funcionario vs Cargo\n"
                                 "[32] - Maiores Salarios \n"
                                 "[33] - Aniversariantes do mês \n"
+                                "[34] - Alunos Matriculados mês \n"
                                 "[ 0] - Voltar ao menu\n"
                                 "Insira a opção desejada=> ")
 
@@ -355,6 +356,10 @@ def main():
                             elif submenuRelatorio == "33":
                                 from Defs.join import aniversario
                                 aniversario()
+
+                            elif submenuRelatorio == "34":
+                                from Defs.join import alunos_matriculados_mes
+                                alunos_matriculados_mes()
 
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 25 a 30]\n\033[0m")
