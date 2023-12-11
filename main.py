@@ -349,6 +349,8 @@ def main():
                             elif submenuRelatorio == "32":
                                 from Defs.join import salarios
                                 salarios()
+                                from Defs.join import gera_grafico_salario
+                                gera_grafico_salario()
 
                             elif submenuRelatorio == "33":
                                 from Defs.join import aniversario

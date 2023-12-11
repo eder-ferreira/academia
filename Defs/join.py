@@ -32,7 +32,7 @@ def join_funcionario_cargo():
 
 
 def salarios():
-
+    global escolha
     escolha = input("""Digite a quantidade de linhas Ex.:Top 5 =>  """)
 
     cur.execute(f""" SELECT nome, setor, salario_base FROM tb_cargo ORDER BY salario_base DESC LIMIT {escolha} """)
@@ -90,3 +90,21 @@ def idade():
     for row in resultados:
         tabela.add_row(row)
     print(tabela)
+
+def gera_grafico_salario():
+    import matplotlib.pyplot as plt
+    cur.execute(f""" SELECT setor, salario_base FROM tb_cargo ORDER BY salario_base DESC LIMIT {escolha} """)
+    resultados = cur.fetchall()
+    nome, setor = zip(*resultados)
+
+    # Criar o gráfico
+    plt.style.use("Solarize_Light2")
+    nome, setor = zip(*resultados)
+    plt.bar(nome, setor, label='Setor',color="b")
+
+    plt.xlabel('Setor')
+    plt.ylabel('Salário')
+    plt.title('Salário por Setor')
+    plt.legend()
+    plt.xticks(rotation=45)
+    plt.show()
