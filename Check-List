@@ -1,38 +1,42 @@
 
-1- Criar Menu de Login e cadastro de novo usuario  OK
+1- Criar Menu de Login e cadastro de novo usuario
  OK -validar se o usuario ja existe no banco
-    -esconder a senha digitada
 
 2- Criar regra de negocio
  OK - função para filtrar aniversariantes do mês
-    - função para atualizar o campo status (Ativo ou Inativo) para funcionario desligado
  OK - função para filtrar maiores salarios por setor (JOIN)
  OK - Criar nova tabela com JOIN para vincular o setor e o salario
-    - função para filtrar alunos (M ou F)
  OK - quando cadastrar novo usuario (tb_usuario) atualizar a tabela (tb_aluno) com a mesma matricula e id
  OK - quando cadastrar aluno (tb_aluno) atualizar na tabela (tb_usuario)
+ OK - Criar função calcula idade
 
 3- Criar documento de analise dos requisitos
 4- Atualizar novamente os diagramas
 
+9 -Criar Graficos
+OK - Funcionario vs Cargos
+OK - Maiores salario por setor
+OK - Aniversariantes do mês
+OK - Quantidade de alunos matriculados por mes
 
-PROXIMAS CORREÇÕES
+
+>>>>>>>>>> PROXIMAS CORREÇÕES <<<<<<<<<<
 
 1- Verificação no banco se o registro já existe
 2- Tratar no menu [17] - Planos (Digite o codigo, descrição ou nivel para pesquisar=>)
 aceita valore vazio e enter
 
 3- Pequisar [18]
-OK - Endereços, não está funcionando
 -  Tratar para trazer sem a matricula e o nome no print
 
 4- Trata Excluir [30] - Endereços, tratar pois está vinculado a um Usuario, Funcionario ou Cliente
 - Criar campo Usuario e Aluno status (Ativo ou Inativo)
 
 5- Colocar a o cria_banco dentro de uma função para ser chamado no main
-6- OK Criar função calcula idade
-7- Ajustar data padrão BR
-8- Criar opção de 0 pra sair quando iniciado o cadastro
-9 -Criar Graficos
-OK - Setor vs Salario
-   - Quantidade de alunos matriculados por mes
+
+6- Ajustar data padrão BR
+7- Criar opção de 0 pra sair quando iniciado o cadastro
+
+8- Criar tabela de log no sistema
+9- Criar esconder a senha digitada
+10- Criar função para atualizar o campo status (Ativo ou Inativo) para funcionario desligado
