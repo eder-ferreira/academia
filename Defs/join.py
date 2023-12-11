@@ -67,7 +67,6 @@ def aniversario():
         tabela.add_row(row)
     print(tabela)
 
-aniversario()
 
 def calculaIdade():
     nome = input('Digite o nome: ')
