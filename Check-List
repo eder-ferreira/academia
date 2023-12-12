@@ -43,3 +43,4 @@ aceita valore vazio e enter
 11- Criar função para atualizar o campo status (Ativo ou Inativo) para funcionario desligado
 12- Exportar relatorio para PDF
 12- Limpar a tela ao voltar em um novo menu
+13- Não deixar prosseguir se o campo num_documento estiver vazio, pois é campo NOT NULL

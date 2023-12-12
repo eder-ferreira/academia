@@ -1,5 +1,4 @@
 import sys
-from datetime import datetime
 from datetime import date
 from Defs.cadastrar import cadastrar_aluno
 from Defs.cadastrar import cadastrar_usuario
@@ -325,7 +324,7 @@ def main():
                                 listar_endereco()
 
                             else:
-                                print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 25 a 30]\n\033[0m")
+                                print("Opção Inválida!\n\033[1;31mDigite um opção de [0 ou 25 a 30]\n\033[0m")
 
                     # RELATORIO
                     elif opcao == "6":
@@ -362,10 +361,10 @@ def main():
                                 alunos_matriculados_mes()
 
                             else:
-                                print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 25 a 30]\n\033[0m")
+                                print("Opção Inválida!\n\033[0;33mDigite um opção de [0 ou 25 a 30]\n\033[0m")
 
                     else:
-                        print("\033[1;31mOpção Inválida!\nDigite um opção de [0 a 5]\n\033[0m")
+                        print("Opção Inválida!\n\033[1;31mDigite um opção de [0 a 5]\n\033[0m")
 
             else:
                 print("\033[1;31mLogin ou senha incorretos!\033[0m")

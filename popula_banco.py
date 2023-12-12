@@ -1,6 +1,6 @@
 # ----------------------  ACESSA BANCO ---------------------------------------
 import sqlite3
-con = sqlite3.connect('academia.db', check_same_thread=False)
+con = sqlite3.connect('Defs/academia.db', check_same_thread=False)
 cur = con.cursor()
 
 # ----------------------  POPULA TABELA USUARIO ------------------------------

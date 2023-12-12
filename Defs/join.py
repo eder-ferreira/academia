@@ -3,8 +3,8 @@ from datetime import datetime
 from datetime import date
 
 import sqlite3
-database = './academia.db'
-con = sqlite3.connect(database, check_same_thread=False)
+database = 'Defs/academia.db'
+con = sqlite3.connect(database, timeout=10)
 cur = con.cursor()
 
 
@@ -140,7 +140,6 @@ def alunos_matriculados_mes():
     plt.style.use("Solarize_Light2")
     mes, qtde_matriculas = zip(*resultados)
     plt.bar(mes, qtde_matriculas, label='Qtde',color="g")
-
     plt.xlabel('Mês')
     plt.ylabel('Quantidade')
     plt.title(f'Alunos matriculados no ano {ano} por mês')
