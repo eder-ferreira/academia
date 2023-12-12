@@ -3,7 +3,7 @@ from datetime import datetime
 from datetime import date
 
 import sqlite3
-database = '/Users/ederpferreira/PycharmProjects/academia/academia.db'
+database = './academia.db'
 con = sqlite3.connect(database, check_same_thread=False)
 cur = con.cursor()
 
@@ -30,6 +30,22 @@ def join_funcionario_cargo():
         tabela.add_row(row)
     print(tabela)
 
+def join_usuario_aluno_endereco():
+    print(f"\nRELATORIO GERADO DAS TABELAS (tb_aluno - tb_usuario - tb_endereco) !")
+    cur.execute("""SELECT tb_usuario.matricula, tb_usuario.nome, 
+    tb_aluno.telefone, tb_usuario.email, tb_aluno.dt_nascimento, strftime('%Y', 'now') - strftime('%Y', tb_aluno.dt_nascimento) 
+    AS idade, tb_endereco.rua, tb_endereco.numero, tb_endereco.cep, tb_endereco.bairro, 
+    tb_endereco.cidade, tb_endereco.estado
+    FROM tb_usuario 
+    INNER JOIN tb_aluno ON tb_usuario.matricula = tb_aluno.matricula
+    INNER JOIN tb_endereco ON tb_aluno.matricula = tb_endereco.matricula""")
+
+    resultados = cur.fetchall()
+    tabela = PrettyTable()
+    tabela.field_names =["Matricula", "Nome", "Telefone", "E-mail", "Data Nascimento","Idade","Rua","Numero","CEP","Bairro","Cidade","Estado"]
+    for row in resultados:
+        tabela.add_row(row)
+    print(tabela)
 
 def salarios():
     global escolha
@@ -49,7 +65,6 @@ def salarios():
         tabela.add_row(row)
     print(tabela)
 
-
 def aniversario():
 
     # cur.execute("""SELECT strftime('%d-%m-%Y', 'now')""")
@@ -67,15 +82,12 @@ def aniversario():
         tabela.add_row(row)
     print(tabela)
 
-
 def calculaIdade():
     nome = input('Digite o nome: ')
     sobrenome = input('Digite o sobrenome: ')
     nascimento = input('Digite a data de nascimento: ')
     idade = date.today().year - datetime.strptime(nascimento, '%d/%m/%Y').year
     print(f'Olá! O nome completo é {nome} {sobrenome} e hoje você tem {idade} anos')
-
-
 
 def idade():
     cur.execute("""
@@ -118,8 +130,6 @@ def alunos_matriculados_mes():
     WHERE (strftime('%Y', dt_cadastro) = '{ano}')
     GROUP BY mes 
     ORDER BY mes""")
-
-
 
     print(f"\nALUNOS MATRICULADO NO ANO {ano} POR MES!")
     resultados = cur.fetchall()

@@ -1,4 +1,3 @@
-
 class Pessoa:
     def __init__(self, id, nome, tipo_documento, num_documento, telefone, genero, dt_nascimento):
         self.id = id
@@ -80,5 +79,3 @@ class Endereco:
         self.bairro = bairro
         self.cidade = cidade
         self.estado = estado
-
-
