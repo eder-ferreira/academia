@@ -1,7 +1,7 @@
 import sqlite3
-database = './academia.db'
-con = sqlite3.connect(database, check_same_thread=False)  # CRIA CONEXÃO
-cur = con.cursor()
+database = '/Users/ederpferreira/PycharmProjects/academia/academia.db'
+con = sqlite3.connect(database, timeout=10)  # CRIA CONEXÃO
+cur = con.cursor()  # CRIA CURSOR
 
 
 def excluir_aluno():
@@ -9,16 +9,14 @@ def excluir_aluno():
     exclui = input("Informe o id ser excluido => ")
     con.execute(f"DELETE FROM tb_aluno WHERE id == {exclui}")
     con.commit()
-    print(f"Registro id: {exclui} excluido com sucesso!!!")
-
+    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso!!!\033[0;0m]")
 
 def excluir_usuario():
     print("\n<<<<<= EXCLUIR USUARIO =>>>>>")
     exclui = input("Informe o id ser excluido => ")
     con.execute(f"DELETE FROM tb_usuario WHERE id == '{exclui}' ")
     con.commit()
-    print(f"Registro id: {exclui} excluido com sucesso!!!")
-
+    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso!!!\033[0;0m]")
 
 def excluir_funcionario():
     print("\n<<<<<= EXCLUIR FUNCIONARIO =>>>>>")
@@ -33,7 +31,7 @@ def excluir_cargo():
     exclui = input("Informe o id ser excluido => ")
     con.execute(f"DELETE FROM tb_cargo WHERE id =='{exclui}'")
     con.commit()
-    print(f"Registro id: {exclui} excluido com sucesso!!!")
+    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso!!!\033[0;0m]")
 
 
 def excluir_plano():
@@ -41,7 +39,7 @@ def excluir_plano():
     exclui = input("Informe o id ou codigo ser excluido => ")
     con.execute(f"DELETE FROM tb_plano WHERE id =='{exclui}' or codigo == '{exclui}'")
     con.commit()
-    print(f"Registro id: {exclui} excluido com sucesso!!!")
+    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso!!!\033[0;0m]")
 
 
 def excluir_endereco():
@@ -49,4 +47,4 @@ def excluir_endereco():
     exclui = input("Informe o id ou rua ser excluido => ")
     con.execute(f"DELETE FROM tb_endereco WHERE id =='{exclui}' or rua == '{exclui}'")
     con.commit()
-    print(f"Registro id: {exclui} excluido com sucesso!!!")
+    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso!!!\033[0;0m]")

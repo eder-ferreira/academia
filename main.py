@@ -15,27 +15,27 @@ ano = data.year
 
 menu = [
     "\033[0;34m>>>>>>>> MENU OPÇÕES <<<<<<<<\n\033[0;0m"
-    "\033[0;34m[1]\033[0;0m - Cadastrar\n"
-    "\033[0;34m[2]\033[0;0m - Listar\n"
-    "\033[0;34m[3]\033[0;0m - Pesquisar\n"
-    "\033[0;34m[4]\033[0;0m - Atualizar\n"
-    "\033[0;34m[5]\033[0;0m - Excluir\n"
-    "\033[0;34m[6]\033[0;0m - Relatorio\n"    
-    "\033[0;34m[0]\033[0;0m - Sair"]
+    "[\033[0;34m 1 \033[0;0m] - Cadastrar\n"
+    "[\033[0;34m 2 \033[0;0m] - Listar\n"
+    "[\033[0;34m 3 \033[0;0m] - Pesquisar\n"
+    "[\033[0;34m 4 \033[0;0m] - Atualizar\n"
+    "[\033[0;34m 5 \033[0;0m] - Excluir\n"
+    "[\033[0;34m 6 \033[0;0m] - Relatorio\n"    
+    "[\033[0;34m 0 \033[0;0m] - Sair"]
 
 
 def tela_login():
-    print("   [[[====]]]      [[[====]]]"
-     f"\n\033[0;32mData: {data} "
-      "\n<<<<<<<= TELA DE LOGIN =>>>>>>>>",
-      "\n[0] - Sair"
-      "\n[1] - Logar"
-      "\n[2] - Cadastrar Novo Usuario\033[0m")
+     print("   [[[====]]]      [[[====]]]"
+     f"\n\033[0;34m>>>>>>>>= Data: {data} =<<<<<\033[0;0m"
+      "\n\033[0;34m>>>>>>>>= TELA DE LOGIN =<<<<<<<<\033[0;0m",
+      "\n[\033[0;34m 0 \033[0;0m] - Sair"
+      "\n[\033[0;34m 1 \033[0;0m] - Logar"
+      "\n[\033[0;34m 2 \033[0;0m] - Cadastrar Novo Usuario")
 
 def main():
     while True:
         tela_login()
-        opcao = input("\033[0;32mInsira a opção=> \033[0m")
+        opcao = input("\033[0;34mInsira a opção=> \033[0m")
         if opcao == '0':
             print("\n\033[0;31mFechando o programa....\n\033[0;0m")
             sys.exit()
@@ -44,7 +44,7 @@ def main():
             cadastrar_usuario()
 
         elif opcao == '1':
-            print("\n<<<<<<<<= \033[0;34mMENU LOGAR \033[0;0m=>>>>>>>>>>")
+            print("\n\033[0;34m>>>>>>>> MENU LOGAR <<<<<<<<\033[0;0m")
             login = input("Digite seu login=> ")
             senha = input("Digite sua senha=> ")
             if autentica_login(login, senha):
@@ -58,7 +58,7 @@ def main():
                 while True:
                     for opcao in menu:
                         print(opcao)
-                    opcao = input("\033[0;34mInsira a opção desejada 0 =>\033[0;0m ")
+                    opcao = input("\033[0;34mInsira a opção desejada =>\033[0;0m ")
                     print("-" * 30)
 
                     if opcao == "0":
@@ -69,15 +69,15 @@ def main():
                     elif opcao == "1":
                         while True:
                             submenuCadastrar = input(
-                                "\n>>>>> MENU CADASTRAR <<<<<\n"
-                                "[1] - Aluno\n"
-                                "[2] - Usuario \n"
-                                "[3] - Funcionario\n"
-                                "[4] - Cargos\n"
-                                "[5] - Planos\n"
-                                "[6] - Endereços\n"
-                                "[0] - Voltar ao menu\n"
-                                "Insira a opção desejada=> ")
+                            "\033[0;34m>>>>>>>> MENU CADASTRAR <<<<<<<<\n\033[0;0m"
+                            "[\033[0;34m 1 \033[0;0m] - Aluno\n"
+                            "[\033[0;34m 2 \033[0;0m] - Usuario\n"
+                            "[\033[0;34m 3 \033[0;0m] - Funcionario\n"
+                            "[\033[0;34m 4 \033[0;0m] - Cargos\n"
+                            "[\033[0;34m 5 \033[0;0m] - Planos\n"
+                            "[\033[0;34m 6 \033[0;0m] - Endereços\n"
+                            "[\033[0;34m 0 \033[0;0m] - Voltar ao menu\n"
+                            "\033[0;34mInsira a opção desejada =>\033[0;0m ")
 
                             if submenuCadastrar == "0":
                                 print("-" * 30)
@@ -110,15 +110,15 @@ def main():
                     elif opcao == "2":
                         while True:
                             submenuListar = input(
-                                "\n>>>>> MENU LISTAR <<<<<\n"
-                                "[ 7] - Aluno\n"
-                                "[ 8] - Usuario \n"
-                                "[ 9] - Funcionario\n"
-                                "[10] - Cargos\n"
-                                "[11] - Planos\n"
-                                "[12] - Endereços\n"
-                                "[ 0] - Voltar ao menu\n"
-                                "Insira a opção desejada=> ")
+                            "\033[0;34m>>>>>>>> MENU LISTAR <<<<<<<<\n\033[0;0m"
+                            "[\033[0;34m  7 \033[0;0m] - Aluno\n"
+                            "[\033[0;34m  8 \033[0;0m] - Usuario\n"
+                            "[\033[0;34m  9 \033[0;0m] - Funcionario\n"
+                            "[\033[0;34m 10 \033[0;0m] - Cargos\n"
+                            "[\033[0;34m 11 \033[0;0m] - Planos\n"
+                            "[\033[0;34m 12 \033[0;0m] - Endereços\n"
+                            "[\033[0;34m  0 \033[0;0m] - Voltar ao menu\n"
+                            "\033[0;34mInsira a opção desejada =>\033[0;0m ")
 
                             if submenuListar == "0":
                                 print("-" * 30)
@@ -154,15 +154,15 @@ def main():
                     elif opcao == "3":
                         while True:
                             submenuBuscar = input(
-                                "\n>>>>> MENU PESQUISAR <<<<<\n"
-                                "[13] - Aluno\n"
-                                "[14] - Usuario \n"
-                                "[15] - Funcionario\n"
-                                "[16] - Cargos\n"
-                                "[17] - Planos\n"
-                                "[18] - Endereços\n"
-                                "[0] - Voltar ao menu\n"
-                                "Insira a opção desejada=> ")
+                            "\033[0;34m>>>>>>>> MENU PESQUISAR <<<<<<<<\n\033[0;0m"
+                            "[\033[0;34m 13 \033[0;0m] - Aluno\n"
+                            "[\033[0;34m 14 \033[0;0m] - Usuario\n"
+                            "[\033[0;34m 15 \033[0;0m] - Funcionario\n"
+                            "[\033[0;34m 16 \033[0;0m] - Cargos\n"
+                            "[\033[0;34m 17 \033[0;0m] - Planos\n"
+                            "[\033[0;34m 18 \033[0;0m] - Endereços\n"
+                            "[\033[0;34m  0 \033[0;0m] - Voltar ao menu\n"
+                            "\033[0;34mInsira a opção desejada =>\033[0;0m ")
 
                             if submenuBuscar == "0":
                                 print("-" * 30)
@@ -198,15 +198,15 @@ def main():
                     elif opcao == "4":
                         while True:
                             submenuAtualiza = input(
-                                "\n>>>>> MENU ATUALIZAR <<<<<\n"
-                                "[19] - Aluno\n"
-                                "[20] - Usuario \n"
-                                "[21] - Funcionario\n"
-                                "[22] - Cargos\n"
-                                "[23] - Planos\n"
-                                "[24] - Endereços\n"
-                                "[ 0] - Voltar ao menu\n"
-                                "Insira a opção desejada=> ")
+                            "\033[0;34m>>>>>>>> MENU ATUALIZAR <<<<<<<<\n\033[0;0m"
+                            "[\033[0;34m 19 \033[0;0m] - Aluno\n"
+                            "[\033[0;34m 20 \033[0;0m] - Usuario\n"
+                            "[\033[0;34m 21 \033[0;0m] - Funcionario\n"
+                            "[\033[0;34m 22 \033[0;0m] - Cargos\n"
+                            "[\033[0;34m 23 \033[0;0m] - Planos\n"
+                            "[\033[0;34m 24 \033[0;0m] - Endereços\n"
+                            "[\033[0;34m  0 \033[0;0m] - Voltar ao menu\n"
+                            "\033[0;34mInsira a opção desejada =>\033[0;0m ")
 
                             if submenuAtualiza == "0":
                                 print("-" * 30)
@@ -266,15 +266,15 @@ def main():
                     elif opcao == "5":
                         while True:
                             submenuExcluir = input(
-                                "\n>>>>> MENU EXCLUIR <<<<<\n"
-                                "[25] - Aluno\n"
-                                "[26] - Usuario \n"
-                                "[27] - Funcionario\n"
-                                "[28] - Cargos\n"
-                                "[29] - Planos\n"
-                                "[30] - Endereços\n"
-                                "[ 0] - Voltar ao menu\n"
-                                "Insira a opção desejada=> ")
+                            "\033[1;31m>>>>>>>> MENU EXCLUIR <<<<<<<<\n\033[0;0m"
+                            "[\033[1;31m 25 \033[0;0m] - Aluno\n"
+                            "[\033[1;31m 26 \033[0;0m] - Usuario\n"
+                            "[\033[1;31m 27 \033[0;0m] - Funcionario\n"
+                            "[\033[1;31m 28 \033[0;0m] - Cargos\n"
+                            "[\033[1;31m 29 \033[0;0m] - Planos\n"
+                            "[\033[1;31m 30 \033[0;0m] - Endereços\n"
+                            "[\033[1;31m  0 \033[0;0m] - Voltar ao menu\n"
+                            "\033[1;31mInsira a opção desejada =>\033[0;0m ")
 
                             if submenuExcluir == "0":
                                 print("-" * 30)
@@ -331,13 +331,13 @@ def main():
                     elif opcao == "6":
                         while True:
                             submenuRelatorio = input(
-                                "\n>>>>> MENU RELATORIOS <<<<<\n"
-                                "[31] - Funcionario vs Cargo\n"
-                                "[32] - Maiores Salarios \n"
-                                "[33] - Aniversariantes do mês \n"
-                                "[34] - Alunos Matriculados mês \n"
-                                "[ 0] - Voltar ao menu\n"
-                                "Insira a opção desejada=> ")
+                            "\033[0;33m>>>>>>>> MENU RELATORIOS <<<<<<<<\n\033[0;0m"
+                            "[\033[0;33m 31 \033[0;0m] - Funcionario vs Cargo\n"
+                            "[\033[0;33m 32 \033[0;0m] - Maiores Salarios por Setor\n"
+                            "[\033[0;33m 33 \033[0;0m] - Aniversariantes do mês\n"
+                            "[\033[0;33m 34 \033[0;0m] - Alunos Matriculados mês\n"
+                            "[\033[0;33m  0 \033[0;0m] - Voltar ao menu\n"
+                            "\033[0;33mInsira a opção desejada =>\033[0;0m ")
 
                             if submenuRelatorio == "0":
                                 print("-" * 30)
