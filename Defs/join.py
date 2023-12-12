@@ -50,15 +50,10 @@ def join_usuario_aluno_endereco():
 def salarios():
     global escolha
     escolha = input("""Digite a quantidade de linhas Ex.:Top 5 =>  """)
-
     cur.execute(f""" SELECT nome, setor, salario_base FROM tb_cargo ORDER BY salario_base DESC LIMIT {escolha} """)
-    # Obter os resultados
+
+
     resultados = cur.fetchall()
-
-    # Imprimi resultado
-    # for resultado in resultados:
-    #     print(resultado)
-
     tabela = PrettyTable()
     tabela.field_names = [desc[0] for desc in cur.description]
     for row in resultados:
