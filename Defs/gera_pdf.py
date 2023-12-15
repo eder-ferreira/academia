@@ -1,7 +1,7 @@
 from prettytable import PrettyTable
 from reportlab.pdfgen import canvas
 import sqlite3
-database = 'academia.db'
+database = 'Defs/academia.db'
 con = sqlite3.connect(database, timeout=10)
 cur = con.cursor()
 
@@ -49,7 +49,6 @@ def gerar_pdf():
     pdf.save()
     print("PDF gerado com sucesso!")
 
-
 #-------------------------------------------------------------
 
     # # Definindo a posição inicial das linhas horizontais
@@ -63,5 +62,3 @@ def gerar_pdf():
     # # Desenhando linhas verticais
     # for x in col_widths:
     #     pdf.line(x, y_start, x, y_end)
-
-gerar_pdf()

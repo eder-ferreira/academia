@@ -23,7 +23,10 @@
 import logging
 
 # Configurar o logger
-logging.basicConfig(filename='Log/atividades.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    filename='Log/atividades.log',
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Função para registrar uma atividade
 def registrar_atividade(atividade):

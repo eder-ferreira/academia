@@ -8,6 +8,7 @@ from Defs.cadastrar import cadastrar_plano
 from Defs.validar_login import autentica_login
 from Defs.validaCampoVazio import validar_opcao_login
 from Log.log import registrar_atividade
+from Defs.gera_pdf import gerar_pdf
 
 data = date.today()
 dia = data.day
@@ -230,6 +231,7 @@ def main():
                                 break
 
                             elif submenuAtualiza == "19":
+                                registrar_atividade("usuario acessou menu de atualizar aluno")
                                 from Defs.listar import listar_aluno
                                 listar_aluno()
                                 from Defs.atualizar import atualiza_aluno
@@ -238,6 +240,7 @@ def main():
                                 listar_aluno()
 
                             elif submenuAtualiza == "20":
+                                registrar_atividade("usuario acessou menu de atualiza usuario")
                                 from Defs.listar import listar_usuario
                                 listar_usuario()
                                 from Defs.atualizar import atualiza_usuario
@@ -246,6 +249,7 @@ def main():
                                 listar_usuario()
 
                             elif submenuAtualiza == "21":
+                                registrar_atividade("usuario acessou menu de atualizar funcionario")
                                 from Defs.listar import listar_funcionario
                                 listar_funcionario()
                                 from Defs.atualizar import atualiza_funcionario
@@ -254,6 +258,7 @@ def main():
                                 listar_funcionario()
 
                             elif submenuAtualiza == "22":
+                                registrar_atividade("usuario acessou menu de cargo")
                                 from Defs.listar import listar_cargo
                                 listar_cargo()
                                 from Defs.atualizar import atualiza_cargo
@@ -262,6 +267,7 @@ def main():
                                 listar_cargo()
 
                             elif submenuAtualiza == "23":
+                                registrar_atividade("usuario acessou menu de plano")
                                 from Defs.listar import listar_plano
                                 listar_plano()
                                 from Defs.atualizar import atualiza_plano
@@ -270,6 +276,7 @@ def main():
                                 listar_plano()
 
                             elif submenuAtualiza == "24":
+                                registrar_atividade("usuario acessou menu de endereço")
                                 from Defs.listar import listar_endereco
                                 listar_endereco()
                                 from Defs.atualizar import atualiza_end_completo
@@ -353,6 +360,7 @@ def main():
                             "[\033[0;33m 32 \033[0;0m] - Maiores Salarios por Setor\n"
                             "[\033[0;33m 33 \033[0;0m] - Aniversariantes do mês\n"
                             "[\033[0;33m 34 \033[0;0m] - Alunos Matriculados mês\n"
+                            "[\033[0;33m 35 \033[0;0m] - Exporta PDF Relatorio de Alunos\n"
                             "[\033[0;33m  0 \033[0;0m] - Voltar ao menu\n"
                             "\033[0;33mInsira a opção desejada =>\033[0;0m ")
                             registrar_atividade("usuario acessou menu de relatorio")
@@ -363,20 +371,28 @@ def main():
                             elif submenuRelatorio == "31":
                                 from Defs.join import join_funcionario_cargo
                                 join_funcionario_cargo()
+                                registrar_atividade("usuario acessou menu de relatorio Funcionario vs Cargo")
 
                             elif submenuRelatorio == "32":
                                 from Defs.join import salarios
                                 salarios()
                                 from Defs.join import gera_grafico_salario
                                 gera_grafico_salario()
+                                registrar_atividade("usuario acessou menu de relatorio Maiores Salarios por Setor")
 
                             elif submenuRelatorio == "33":
                                 from Defs.join import aniversario
                                 aniversario()
+                                registrar_atividade("usuario acessou menu de relatorio Aniversariantes do mês")
 
                             elif submenuRelatorio == "34":
                                 from Defs.join import alunos_matriculados_mes
                                 alunos_matriculados_mes()
+                                registrar_atividade("usuario acessou menu de relatorio Alunos matriculados mês")
+
+                            elif submenuRelatorio == "35":
+                                gerar_pdf()
+                                registrar_atividade("usuario acessou menu de relatorio Exporta PDF alunos")
 
                             else:
                                 print("Opção Inválida!\n\033[0;33mDigite um opção de [0 ou 25 a 30]\n\033[0m")
