@@ -6,6 +6,8 @@ from Defs.cadastrar import cadastrar_funcionario
 from Defs.cadastrar import cadastrar_cargo
 from Defs.cadastrar import cadastrar_plano
 from Defs.validar_login import autentica_login
+from Defs.validaCampoVazio import validar_opcao_login
+from Log.log import registrar_atividade
 
 data = date.today()
 dia = data.day
@@ -21,48 +23,56 @@ menu = [
     "[\033[0;34m 5 \033[0;0m] - Excluir\n"
     "[\033[0;34m 6 \033[0;0m] - Relatorio\n"    
     "[\033[0;34m 0 \033[0;0m] - Sair"]
-
+registrar_atividade("usuario acessou o sistema")
 
 def tela_login():
-     print("   [[[====]]]      [[[====]]]"
+     print(" "
      f"\n\033[0;34m>>>>>>>>= Data: {data} =<<<<<\033[0;0m"
       "\n\033[0;34m>>>>>>>>= TELA DE LOGIN =<<<<<<<<\033[0;0m",
       "\n[\033[0;34m 0 \033[0;0m] - Sair"
       "\n[\033[0;34m 1 \033[0;0m] - Logar"
       "\n[\033[0;34m 2 \033[0;0m] - Cadastrar Novo Usuario")
+registrar_atividade("usuario acessou tela de login")
 
 def main():
     while True:
         tela_login()
         opcao = input("\033[0;34mInsira a opção=> \033[0m")
+        validar_opcao_login(opcao)
         if opcao == '0':
-            print("\n\033[0;31mFechando o programa....\n\033[0;0m")
+            print("-"*30)
+            print("\033[0;31m      Sistema Encerrado!\033[0;0m")
+            print("-" * 30)
             sys.exit()
+
 
         elif opcao == '2':
             cadastrar_usuario()
 
         elif opcao == '1':
+            registrar_atividade("usuario acessou o login!")
             print("\n\033[0;34m>>>>>>>> MENU LOGAR <<<<<<<<\033[0;0m")
             login = input("Digite seu login=> ")
             senha = input("Digite sua senha=> ")
             if autentica_login(login, senha):
                 print("=" * 36)
-                print("\033[0;34mLogin bem-sucedido!\033[0m\n")
+                print("\033[0;34mLogin bem-sucedido!\033[0m")
                 print("-" * 36)
                 print(f" Data: {data}")
                 print(f" Olá, seja bem vindo(a): {login}!")
                 print("-" * 36)
-
+                registrar_atividade("usuario efetuou login")
                 while True:
                     for opcao in menu:
                         print(opcao)
                     opcao = input("\033[0;34mInsira a opção desejada =>\033[0;0m ")
-                    print("-" * 30)
+                    print("=" * 30)
 
                     if opcao == "0":
-                        print('\033[1;31mFinalizando programa....')
-                        sys.exit()
+                        print("\033[0;31mFinalizando programa....\033[0;0m")
+                        print("-" * 30)
+                        break
+                        registrar_atividade("usuario saiu do programa!")
 
                     # CADASTRAR
                     elif opcao == "1":
@@ -77,27 +87,33 @@ def main():
                             "[\033[0;34m 6 \033[0;0m] - Endereços\n"
                             "[\033[0;34m 0 \033[0;0m] - Voltar ao menu\n"
                             "\033[0;34mInsira a opção desejada =>\033[0;0m ")
-
+                            registrar_atividade("usuario acessou menu de cadastro!")
                             if submenuCadastrar == "0":
                                 print("-" * 30)
                                 break
 
                             elif submenuCadastrar == "1":
                                 cadastrar_aluno()
+                                registrar_atividade("usuario acessou menu de cadastrar aluno!")
 
                             elif submenuCadastrar == "2":
                                 cadastrar_usuario()
+                                registrar_atividade("usuario acessou menu de cadastrar usuario!")
 
                             elif submenuCadastrar == "3":
                                 cadastrar_funcionario()
+                                registrar_atividade("usuario acessou menu de cadastrar funcionario!")
 
                             elif submenuCadastrar == "4":
                                 cadastrar_cargo()
+                                registrar_atividade("usuario acessou menu de cadastrar cargo!")
 
                             elif submenuCadastrar == "5":
                                 cadastrar_plano()
+                                registrar_atividade("usuario acessou menu de cadastrar plano!")
 
                             elif submenuCadastrar == "6":
+                                registrar_atividade("usuario acessou menu de cadastrar endereço!")
                                 from Defs.listar import listar_endereco
                                 listar_endereco()
                                 from Defs.atualizar import atualiza_end_completo
@@ -118,6 +134,7 @@ def main():
                             "[\033[0;34m 12 \033[0;0m] - Endereços\n"
                             "[\033[0;34m  0 \033[0;0m] - Voltar ao menu\n"
                             "\033[0;34mInsira a opção desejada =>\033[0;0m ")
+                            registrar_atividade("usuario acessou menu de listar")
 
                             if submenuListar == "0":
                                 print("-" * 30)
@@ -162,6 +179,7 @@ def main():
                             "[\033[0;34m 18 \033[0;0m] - Endereços\n"
                             "[\033[0;34m  0 \033[0;0m] - Voltar ao menu\n"
                             "\033[0;34mInsira a opção desejada =>\033[0;0m ")
+                            registrar_atividade("usuario acessou menu de pesquisar")
 
                             if submenuBuscar == "0":
                                 print("-" * 30)
@@ -206,7 +224,7 @@ def main():
                             "[\033[0;34m 24 \033[0;0m] - Endereços\n"
                             "[\033[0;34m  0 \033[0;0m] - Voltar ao menu\n"
                             "\033[0;34mInsira a opção desejada =>\033[0;0m ")
-
+                            registrar_atividade("usuario acessou menu de atualizar")
                             if submenuAtualiza == "0":
                                 print("-" * 30)
                                 break
@@ -274,7 +292,7 @@ def main():
                             "[\033[1;31m 30 \033[0;0m] - Endereços\n"
                             "[\033[1;31m  0 \033[0;0m] - Voltar ao menu\n"
                             "\033[1;31mInsira a opção desejada =>\033[0;0m ")
-
+                            registrar_atividade("usuario acessou menu de excluir")
                             if submenuExcluir == "0":
                                 print("-" * 30)
                                 break
@@ -337,7 +355,7 @@ def main():
                             "[\033[0;33m 34 \033[0;0m] - Alunos Matriculados mês\n"
                             "[\033[0;33m  0 \033[0;0m] - Voltar ao menu\n"
                             "\033[0;33mInsira a opção desejada =>\033[0;0m ")
-
+                            registrar_atividade("usuario acessou menu de relatorio")
                             if submenuRelatorio == "0":
                                 print("-" * 30)
                                 break

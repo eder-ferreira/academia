@@ -12,6 +12,3 @@ def autentica_login(login, senha):
 def cad_user():
     return cadastrar_usuario()
 
-
-
-

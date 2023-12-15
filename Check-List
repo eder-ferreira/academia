@@ -30,7 +30,7 @@ aceita valore vazio e enter
 4- Pequisar [18]
 -  Tratar para trazer sem a matricula e o nome no print
 
-5- Trata Excluir [30] - Endereços, tratar pois está vinculado a um Usuario, Funcionario ou Cliente
+5- OK Trata Excluir [30] - Endereços, tratar pois está vinculado a um Usuario, Funcionario ou Cliente
 - Criar campo Usuario e Aluno status (Ativo ou Inativo)
 
 6- Colocar a o cria_banco dentro de uma função para ser chamado no main
@@ -41,6 +41,12 @@ aceita valore vazio e enter
 9- Criar tabela de log no sistema
 10- Criar esconder a senha digitada
 11- Criar função para atualizar o campo status (Ativo ou Inativo) para funcionario desligado
-12- Exportar relatorio para PDF
+12- OK Exportar relatorio para PDF
 12- Limpar a tela ao voltar em um novo menu
-13- Não deixar prosseguir se o campo num_documento estiver vazio, pois é campo NOT NULL
+13- OK Não deixar prosseguir se o campo num_documento estiver vazio, pois é campo NOT NULL
+
+
+14- Digitar a senha errada 3 vezes
+    na = input('Digite 3 números')
+    an = na [::-1]
+    print('o valor invertido é',an)

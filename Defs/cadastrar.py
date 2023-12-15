@@ -6,7 +6,7 @@ from classes import Funcionario
 from classes import Cargo
 from classes import Plano
 from classes import Endereco
-
+from Defs.validaCampoVazio import validar_campo
 
 import sqlite3
 database = 'Defs/academia.db'
@@ -48,6 +48,7 @@ def cadastrar_aluno():
     con.commit()
 
     print("Registros cadastrados na Tabela Cliente!")
+
 
 def cadastrar_funcionario():
     print("\n<<<<<= CADASTRAR FUNCIONARIO =>>>>>")
@@ -129,27 +130,34 @@ def cadastrar_endereco():
     con.commit()
     print("Registros cadastrados na Tabela Endereços!")
 
+
 def cadastrar_usuario():
     print("\n<<<<<= CADASTRAR USUARIO =>>>>>")
     matricula = random.randint(1, 10000000)
     usuario = input("Digite o usuario=> ")
+    validar_campo(usuario)
     senha = input("Digite a senha=> ")
-    nome = input("Digite o nome=> ")
+    validar_campo(senha)
+    nome = input("Digite o nome do usuario=> ")
+    validar_campo(nome)
     email = input("Digite o email=> ")
+    validar_campo(email)
     tipo_doc = input("Informe o tpo de documento [CPF-RG-Passaport-Outros]=> ")
+    validar_campo(tipo_doc)
     n_documento = input("Digite o numero do documento=> ")
+    validar_campo(n_documento)
     status = 'Ativo'
     data_cadastro = date.today()
     data_nascimento = input("Digite sua data de nascimento [aaaa-mm-dd]=> ")
-
+    validar_campo(data_nascimento)
     usuario = Usuario(id='', matricula=matricula, usuario=usuario, senha=senha, nome=nome, email=email,
                       tipo_documento=tipo_doc, num_documento=n_documento, status=status, dt_cadastro=data_cadastro,
                       dt_nascimento=data_nascimento)
     cur.execute("INSERT INTO tb_usuario(id, matricula, usuario, senha, nome, email, tipo_documento, num_documento, "
                 "status, dt_cadastro, dt_nascimento)VALUES(null,?,?,?,?,?,?,?,?,?,?)",
         (usuario.matricula, usuario.usuario, usuario.senha, usuario.nome, usuario.email,
-         usuario.tipo_documento, usuario.num_documento, usuario.status, usuario.dt_cadastro,
-         usuario.dt_nascimento))
+        usuario.tipo_documento, usuario.num_documento, usuario.status, usuario.dt_cadastro,
+        usuario.dt_nascimento))
     con.commit()
 
 # INSERE O REGISTRO DO USUARIO NA TABELA ALUNO
@@ -165,6 +173,7 @@ def cadastrar_usuario():
         (usuario.matricula, usuario.nome))
     con.commit()
     print("Usuário criado com sucesso!!!")
-    print("\033[0;34mRegistros cadastrados na Tabela Usuario!\033[0;0m")
-    print("\033[0;34mRegistros criado na Tabela Aluno!\033[0;0m")
-    print("\033[0;34mRegistros criado na Tabela Endereço!\033[0;0m")
+    print("\033[0;34mUsuário Cadastrado!\033[0;0m")
+    print("\033[0;34mRegistros criados na Tabela Aluno!\033[0;0m")
+    print("\033[0;34mRegistros criados na Tabela Endereço!\033[0;0m\n")
+

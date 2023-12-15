@@ -16,7 +16,18 @@ def excluir_usuario():
     exclui = input("Informe o id ser excluido => ")
     con.execute(f"DELETE FROM tb_usuario WHERE id == '{exclui}' ")
     con.commit()
-    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso!!!\033[0;0m]")
+
+    con.execute(f"DELETE FROM tb_aluno WHERE id == '{exclui}' ")
+    con.commit()
+
+    con.execute(f"DELETE FROM tb_endereco WHERE id == '{exclui}' ")
+    con.commit()
+
+    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso!!!\033[0;0m")
+    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso na Tabela Aluno!\033[0;0m")
+    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso na Tabela Endereço!\033[0;0m")
+
+
 
 def excluir_funcionario():
     print("\n<<<<<= EXCLUIR FUNCIONARIO =>>>>>")
