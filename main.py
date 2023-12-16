@@ -70,10 +70,10 @@ def main():
                     print("=" * 30)
 
                     if opcao == "0":
+                        registrar_atividade("usuario saiu do sistema!")
                         print("\033[0;31mFinalizando programa....\033[0;0m")
                         print("-" * 30)
                         break
-                        registrar_atividade("usuario saiu do programa!")
 
                     # CADASTRAR
                     elif opcao == "1":
@@ -94,24 +94,24 @@ def main():
                                 break
 
                             elif submenuCadastrar == "1":
-                                cadastrar_aluno()
                                 registrar_atividade("usuario acessou menu de cadastrar aluno!")
+                                cadastrar_aluno()
 
                             elif submenuCadastrar == "2":
-                                cadastrar_usuario()
                                 registrar_atividade("usuario acessou menu de cadastrar usuario!")
+                                cadastrar_usuario()
 
                             elif submenuCadastrar == "3":
-                                cadastrar_funcionario()
                                 registrar_atividade("usuario acessou menu de cadastrar funcionario!")
+                                cadastrar_funcionario()
 
                             elif submenuCadastrar == "4":
-                                cadastrar_cargo()
                                 registrar_atividade("usuario acessou menu de cadastrar cargo!")
+                                cadastrar_cargo()
 
                             elif submenuCadastrar == "5":
-                                cadastrar_plano()
                                 registrar_atividade("usuario acessou menu de cadastrar plano!")
+                                cadastrar_plano()
 
                             elif submenuCadastrar == "6":
                                 registrar_atividade("usuario acessou menu de cadastrar endereço!")
@@ -121,6 +121,7 @@ def main():
                                 atualiza_end_completo()
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 a 6]\n\033[0;0m")
+                                registrar_atividade("usuario digitou Opção Inválida! Digite um opção de [0 a 6]!")
 
                     # LISTAR
                     elif opcao == "2":
@@ -142,30 +143,37 @@ def main():
                                 break
 
                             elif submenuListar == "7":
+                                registrar_atividade("usuario acessou menu de listar aluno")
                                 from Defs.listar import listar_aluno
                                 listar_aluno()
 
                             elif submenuListar == "8":
+                                registrar_atividade("usuario acessou menu de listar usuario")
                                 from Defs.listar import listar_usuario
                                 listar_usuario()
 
                             elif submenuListar == "9":
+                                registrar_atividade("usuario acessou menu de listar funcionario")
                                 from Defs.listar import listar_funcionario
                                 listar_funcionario()
 
                             elif submenuListar == "10":
+                                registrar_atividade("usuario acessou menu de listar cargo")
                                 from Defs.listar import listar_cargo
                                 listar_cargo()
 
                             elif submenuListar == "11":
+                                registrar_atividade("usuario acessou menu de listar plano")
                                 from Defs.listar import listar_plano
                                 listar_plano()
 
                             elif submenuListar == "12":
+                                registrar_atividade("usuario acessou menu de listar endereço")
                                 from Defs.listar import listar_endereco
                                 listar_endereco()
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 7 a 12]\n\033[0;0m")
+                                registrar_atividade("usuario digitou opção inválida no menu de atualizar!")
 
                     # BUSCAR
                     elif opcao == "3":
@@ -187,30 +195,37 @@ def main():
                                 break
 
                             elif submenuBuscar == "13":
+                                registrar_atividade("usuario acessou menu de pesquisar aluno")
                                 from Defs.buscar import buscar_aluno
                                 buscar_aluno()
 
                             elif submenuBuscar == "14":
+                                registrar_atividade("usuario acessou menu de pesquisar usuario")
                                 from Defs.buscar import buscar_usuario
                                 buscar_usuario()
 
                             elif submenuBuscar == "15":
+                                registrar_atividade("usuario acessou menu de pesquisar funcionario")
                                 from Defs.buscar import buscar_funcionario
                                 buscar_funcionario()
 
                             elif submenuBuscar == "16":
+                                registrar_atividade("usuario acessou menu de pesquisar cargo")
                                 from Defs.buscar import buscar_cargo
                                 buscar_cargo()
 
                             elif submenuBuscar == "17":
+                                registrar_atividade("usuario acessou menu de pesquisar plano")
                                 from Defs.buscar import buscar_plano
                                 buscar_plano()
 
                             elif submenuBuscar == "18":
+                                registrar_atividade("usuario acessou menu de pesquisar endereço")
                                 from Defs.buscar import buscar_endereco
                                 buscar_endereco()
                             else:
                                 print("\033[1;31mOpção Inválida!\nDigite um opção de [0 ou 13 a 18]\n\033[0;0m")
+                                registrar_atividade("usuario digitou opção inválida no menu de pesquisar!")
 
                     # ATUALIZAR
                     elif opcao == "4":
@@ -305,6 +320,7 @@ def main():
                                 break
 
                             elif submenuExcluir == "25":
+                                registrar_atividade("usuario acessou menu de exclusão de aluno")
                                 from Defs.excluir import excluir_aluno
                                 from Defs.listar import listar_aluno
                                 listar_aluno()
@@ -312,6 +328,7 @@ def main():
                                 listar_aluno()
 
                             elif submenuExcluir == "26":
+                                registrar_atividade("usuario acessou menu de exclusão de usuario")
                                 from Defs.excluir import excluir_usuario
                                 from Defs.listar import listar_usuario
                                 listar_usuario()
@@ -319,6 +336,7 @@ def main():
                                 listar_usuario()
 
                             elif submenuExcluir == "27":
+                                registrar_atividade("usuario acessou menu de exclusão de funcionario")
                                 from Defs.excluir import excluir_funcionario
                                 from Defs.listar import listar_funcionario
                                 listar_funcionario()
@@ -326,6 +344,7 @@ def main():
                                 listar_funcionario()
 
                             elif submenuExcluir == "28":
+                                registrar_atividade("usuario acessou menu de exclusão de cargo")
                                 from Defs.excluir import excluir_cargo
                                 from Defs.listar import listar_cargo
                                 listar_cargo()
@@ -334,6 +353,7 @@ def main():
 
 
                             elif submenuExcluir == "29":
+                                registrar_atividade("usuario acessou menu de exclusão de plano")
                                 from Defs.excluir import excluir_plano
                                 from Defs.listar import listar_plano
                                 listar_plano()
@@ -342,6 +362,7 @@ def main():
 
 
                             elif submenuExcluir == "30":
+                                registrar_atividade("usuario acessou menu de exclusão de endereço")
                                 from Defs.excluir import excluir_endereco
                                 from Defs.listar import listar_endereco
                                 listar_endereco()
@@ -395,12 +416,14 @@ def main():
                                 registrar_atividade("usuario acessou menu de relatorio Exporta PDF alunos")
 
                             else:
-                                print("Opção Inválida!\n\033[0;33mDigite um opção de [0 ou 25 a 30]\n\033[0m")
-
-                    else:
-                        print("Opção Inválida!\n\033[1;31mDigite um opção de [0 a 5]\n\033[0m")
-
+                                print("Opção Inválida!\n\033[0;33mDigite um opção de [0 ou 31 a 35]\n\033[0m")
+                                registrar_atividade("usuario digitou no menu relatorios opção inválida [0 ou 31 a 35]!")
             else:
                 print("\033[1;31mLogin ou senha incorretos!\033[0m")
+                registrar_atividade("usuario digitou Login ou senha incorretos!")
+
+        else:
+            print("Opção Inválida!\n\033[1;31mDigite um opção de [0 a 5]\n\033[0m")
+            registrar_atividade("usuario digitou opção inválida no menu de login!")
 
 main()

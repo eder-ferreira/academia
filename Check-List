@@ -38,7 +38,7 @@ aceita valore vazio e enter
 7- Ajustar data padrão BR Ajustar vizualização / imput de datas de AAAA-MM-DD para DD-MM-AAAA
 8- Criar opção de 0 pra sair quando iniciado o cadastro
 
-9- Criar tabela de log no sistema
+9- OK Criar tabela de log no sistema
 10- Criar esconder a senha digitada
 11- Criar função para atualizar o campo status (Ativo ou Inativo) para funcionario desligado
 12- OK Exportar relatorio para PDF
