@@ -418,12 +418,12 @@ def main():
                             else:
                                 print("Opção Inválida!\n\033[0;33mDigite um opção de [0 ou 31 a 35]\n\033[0m")
                                 registrar_atividade("usuario digitou no menu relatorios opção inválida [0 ou 31 a 35]!")
-            else:
-                print("\033[1;31mLogin ou senha incorretos!\033[0m")
-                registrar_atividade("usuario digitou Login ou senha incorretos!")
 
+                    else:
+                        print("Opção Inválida!\n\033[1;31mDigite um opção de [0 a 6]\n\033[0m")
+                        registrar_atividade("usuario digitou opção inválida. Opção diferente de [0 a 6] no menu de login!")
         else:
-            print("Opção Inválida!\n\033[1;31mDigite um opção de [0 a 5]\n\033[0m")
-            registrar_atividade("usuario digitou opção inválida no menu de login!")
+            print("\033[1;31mLogin ou senha incorretos!\033[0m")
+            registrar_atividade("usuario digitou Login ou senha incorretos!")
 
 main()
