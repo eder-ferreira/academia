@@ -1,13 +1,15 @@
 # ----------------------  CRIA BANCO ---------------------------------------
 import sqlite3
-con = sqlite3.connect('Defs/academia.db', check_same_thread=False)
+
+con = sqlite3.connect("Defs/academia.db", check_same_thread=False)
 cur = con.cursor()
-print('Banco de dados academia.db criado!!!')
+print("Banco de dados academia.db criado!!!")
 
 # ----------------------  CRIA TABELAS ---------------------------------------
 
 with con:
-    cur.execute('''CREATE TABLE IF NOT EXISTS 'tb_aluno'(
+    cur.execute(
+        """CREATE TABLE IF NOT EXISTS 'tb_aluno'(
     'id' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     'matricula'	INTEGER NOT NULL UNIQUE,
     'nome' TEXT,
@@ -19,9 +21,11 @@ with con:
     'dt_cadastro' DATE,
     'dt_nascimento' DATE,
      FOREIGN KEY("matricula") REFERENCES "tb_usuario"("id"))
-    ''')
+    """
+    )
 
-    cur.execute('''CREATE TABLE IF NOT EXISTS 'tb_usuario'(
+    cur.execute(
+        """CREATE TABLE IF NOT EXISTS 'tb_usuario'(
     'id' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     'matricula'	INTEGER NOT NULL UNIQUE,
     'usuario' VARCHAR(15),
@@ -33,9 +37,11 @@ with con:
     'status' TEXT,
     'dt_nascimento' DATE,
     'dt_cadastro' DATE)
-    ''')
+    """
+    )
 
-    cur.execute('''CREATE TABLE IF NOT EXISTS 'tb_funcionario'(
+    cur.execute(
+        """CREATE TABLE IF NOT EXISTS 'tb_funcionario'(
     'id' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     'nome' TEXT,
     'tipo_documento' TEXT,
@@ -52,18 +58,22 @@ with con:
     'dt_cadastro' DATE,
     FOREIGN KEY("cargo_id") REFERENCES "tb_cargo"("codigo"),
     FOREIGN KEY("matricula") REFERENCES "tb_usuario"("matricula")
-    )''')
+    )"""
+    )
 
-    cur.execute('''CREATE TABLE IF NOT EXISTS 'tb_cargo'(
+    cur.execute(
+        """CREATE TABLE IF NOT EXISTS 'tb_cargo'(
     'id' INTEGER NOT NULL PRIMARY KEY,
     'codigo' INTEGER NOT NULL UNIQUE,
     'nome' TEXT,
     'setor' TEXT,
     'salario_base' FLOAT,
     'dt_cadastro' DATE)
-    ''')
+    """
+    )
 
-    cur.execute('''CREATE TABLE IF NOT EXISTS 'tb_plano'(
+    cur.execute(
+        """CREATE TABLE IF NOT EXISTS 'tb_plano'(
     'id' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     'codigo' INTEGER NOT NULL UNIQUE,
     'descricao' TEXT NOT NULL,
@@ -72,9 +82,11 @@ with con:
     'status' TEXT,
     'dt_cadastro' DATE,
     FOREIGN KEY("codigo") REFERENCES "tb_aluno"("matricula"))
-    ''')
+    """
+    )
 
-    cur.execute('''CREATE TABLE IF NOT EXISTS 'tb_endereco'(
+    cur.execute(
+        """CREATE TABLE IF NOT EXISTS 'tb_endereco'(
     'id' INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     'matricula'	INTEGER,
     'nome' TEXT,
@@ -87,10 +99,11 @@ with con:
     'estado' TEXT,
     FOREIGN KEY("matricula") REFERENCES "tb_aluno"("matricula"),
     FOREIGN KEY("matricula") REFERENCES "tb_funcionario"("matricula")
-    )''')
+    )"""
+    )
 
     con.commit()
-print('Tabelas Aluno - Usuario - Funcionario - Cargo - Plano - Endereço criadas!!!')
+print("Tabelas Aluno - Usuario - Funcionario - Cargo - Plano - Endereço criadas!!!")
 
 # ----------------------  FECHA BANCO E CONEXÃO ------------------------------
 cur.close()  # FECHA O OBJETO

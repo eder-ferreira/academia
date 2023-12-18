@@ -1,7 +1,7 @@
 from prettytable import PrettyTable
 import sqlite3
 
-database = 'Defs/academia.db'
+database = "Defs/academia.db"
 con = sqlite3.connect(database, check_same_thread=False)  # CRIA CONEXÃO
 cur = con.cursor()  # CRIA CURSOR
 
@@ -9,8 +9,10 @@ cur = con.cursor()  # CRIA CURSOR
 def listar_aluno():
 
     print("\n<<<<<= LISTAR ALUNOS =>>>>>")
-    cur.execute("""SELECT * FROM tb_aluno;
-    """)
+    cur.execute(
+        """SELECT * FROM tb_aluno;
+    """
+    )
     resultados = cur.fetchall()
     tabela = PrettyTable()
     tabela.field_names = [desc[0] for desc in cur.description]
@@ -21,8 +23,10 @@ def listar_aluno():
 
 def listar_usuario():
     print("\n<<<<<= LISTAR USUARIO =>>>>>")
-    cur.execute("""SELECT * FROM tb_usuario;
-    """)
+    cur.execute(
+        """SELECT * FROM tb_usuario;
+    """
+    )
     resultados = cur.fetchall()
     tabela = PrettyTable()
     tabela.field_names = [desc[0] for desc in cur.description]
@@ -33,8 +37,10 @@ def listar_usuario():
 
 def listar_funcionario():
     print("\n<<<<<= LISTAR FUNCIONARIO =>>>>>")
-    cur.execute("""SELECT * FROM tb_funcionario;
-    """)
+    cur.execute(
+        """SELECT * FROM tb_funcionario;
+    """
+    )
     resultados = cur.fetchall()
 
     tabela = PrettyTable()
@@ -46,8 +52,10 @@ def listar_funcionario():
 
 def listar_cargo():
     print("\n<<<<<= LISTAR CARGOS E SALARIOS =>>>>>")
-    cur.execute("""SELECT * FROM tb_cargo;
-    """)
+    cur.execute(
+        """SELECT * FROM tb_cargo;
+    """
+    )
     resultados = cur.fetchall()
     tabela = PrettyTable()
     tabela.field_names = [desc[0] for desc in cur.description]
@@ -58,8 +66,10 @@ def listar_cargo():
 
 def listar_plano():
     print("\n<<<<<= LISTAR PLANOS - MENSAL =>>>>>")
-    cur.execute("""SELECT * FROM tb_plano;
-    """)
+    cur.execute(
+        """SELECT * FROM tb_plano;
+    """
+    )
     resultados = cur.fetchall()
     tabela = PrettyTable()
     tabela.field_names = [desc[0] for desc in cur.description]
@@ -70,8 +80,10 @@ def listar_plano():
 
 def listar_endereco():
     print("\n<<<<<= LISTAR ENDEREÇO =>>>>>")
-    cur.execute("""SELECT * FROM tb_endereco;
-    """)
+    cur.execute(
+        """SELECT * FROM tb_endereco;
+    """
+    )
     resultados = cur.fetchall()
     tabela = PrettyTable()
     tabela.field_names = [desc[0] for desc in cur.description]

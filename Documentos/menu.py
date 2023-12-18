@@ -1,4 +1,3 @@
-
 tam = 20
 tam2 = 8
 opcoes = {

@@ -19,17 +19,18 @@
 # registrar_log("Isso é uma mensagem de erro.", logging.ERROR)
 
 
-
 import logging
 
 # Configurar o logger
 logging.basicConfig(
-    filename='Log/atividades.log',
+    filename="Log/atividades.log",
     level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s')
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
 # Função para registrar uma atividade
 def registrar_atividade(atividade):
     logging.info(atividade)
+
 
 logging.shutdown()

@@ -1,5 +1,6 @@
 import sqlite3
-database = 'Defs/academia.db'
+
+database = "Defs/academia.db"
 con = sqlite3.connect(database, timeout=10)  # CRIA CONEXÃO
 cur = con.cursor()  # CRIA CURSOR
 
@@ -10,6 +11,7 @@ def excluir_aluno():
     con.execute(f"DELETE FROM tb_aluno WHERE id == {exclui}")
     con.commit()
     print(f"Registro id:{exclui} \033[1;31m excluido com sucesso!!!\033[0;0m]")
+
 
 def excluir_usuario():
     print("\n<<<<<= EXCLUIR USUARIO =>>>>>")
@@ -24,9 +26,12 @@ def excluir_usuario():
     con.commit()
 
     print(f"Registro id:{exclui} \033[1;31m excluido com sucesso!!!\033[0;0m")
-    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso na Tabela Aluno!\033[0;0m")
-    print(f"Registro id:{exclui} \033[1;31m excluido com sucesso na Tabela Endereço!\033[0;0m")
-
+    print(
+        f"Registro id:{exclui} \033[1;31m excluido com sucesso na Tabela Aluno!\033[0;0m"
+    )
+    print(
+        f"Registro id:{exclui} \033[1;31m excluido com sucesso na Tabela Endereço!\033[0;0m"
+    )
 
 
 def excluir_funcionario():
