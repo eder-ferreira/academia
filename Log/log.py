@@ -24,7 +24,7 @@ import logging
 # Configurar o logger
 logging.basicConfig(
     filename="Log/atividades.log",
-    level=logging.DEBUG,
+    level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
